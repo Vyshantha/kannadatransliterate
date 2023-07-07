@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!--script async src="https://www.googletagmanager.com/gtag/js?id=G-GQDDWCT3Y5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-GQDDWCT3Y5');
+    </script-->
+    <meta charset="utf-8">  
+    <title>Kannada Transliteration : ಕನ್ನಡ - [ˈkɐnːɐɖa]</title>
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="Kannada Translation" />
+    <meta property="og:image"              content="Seal_of_Karnataka.png" />
+    <meta property="og:description"        content="Kannada Karnataka India ಕನ್ನಡ : [ˈkɐnːɐɖa]" data-qmeta="keywords">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="Seal_of_Karnataka.png">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans Kannada' rel='stylesheet'>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <table class="tab">
+          <tr>
+            <td class="widthOfTab ">
+              <button class="tablinks" onclick="openTab(event, 'Latin')" id="defaultOpen">Kannada [ˈkɐnːɐɖa]</button>
+            </td>
+            <td class="widthOfTab textKannada alignIcon">
+              <span class="tablinks kannadaTab">ಕನ್ನಡ</span>
+            </td>
+          </tr>
+        </table>
+        <div class="text-input">
+          <div id="Latin" class="tabcontent currentTab">
+            <textarea spellcheck="false" id="textarea1" class="from-text" placeholder="Kannada(Latin) &#10;&#10;   Ellā mānavarū svatantrarāgiyē huṭṭiddāre. Hāgū ghanate mattu adhikāragaḷalli samānarāgiddāre. &#10;   Tiḷivu mattu antaḥkaraṇagaḷannu paḍedavarāddarinda avaru obbarigobbaru sahōdara bhāvadinda naḍedukoḷḷabēku." onkeyup="transliterate()"></textarea>
+          </div>
+          <div id="Kannada" class="kannadaTabText">
+            <textarea spellcheck="false" id="textarea2" readonly class="to-text" placeholder="ಕನ್ನಡ ಲಿಪಿಯಲ್ಲಿ &#10;&#10;   ಎಲ್ಲಾ ಮಾನವರೂ ಸ್ವತಂತ್ರರಾಗಿಯೇ ಹುಟ್ಟಿದ್ದಾರೆ. ಹಾಗೂ ಘನತೆ ಮತ್ತು ಅಧಿಕಾರಗಳಲ್ಲಿ ಸಮಾನರಾಗಿದ್ದಾರೆ. &#10;   ತಿಳಿವು ಮತ್ತು ಅಂತಃಕರಣಗಳನ್ನು ಪಡೆದವರಾದ್ದರಿಂದ, ಅವರು ಒಬ್ಬರಿಗೊಬ್ಬರು ಸಹೋದರ ಭಾವದಿಂದ ನಡೆದುಕೊಳ್ಳಬೇಕು." dir="ltr" onkeyup="transliterate()"></textarea>
+          </div>
+        </div>
+        <ul class="controls">
+          <li class="row from">
+            <div class="icons tooltip" onmousedown="show1()">
+              <i id="from" class="fas fa-copy" onclick="copyContent1()"></i>
+              <div id="tooltip1" onmouseout="hide()" class="tooltiptext">
+                <span class="latinCopyText">Copy Transliteration text - [ˈkɐnːɐɖa]</span>
+              </div>
+            </div>
+          </li>
+          <li class="exchange">
+            <i class="fas fa-exchange-alt" onclick="swapTransliteration()"></i>
+          </li>
+          <li class="row to">
+            <div class="icons tooltip" onmousedown="show2()">
+              <i id="to" class="fas fa-copy" onclick="copyContent2()"></i>
+              <div id="tooltip2" onmouseout="hide()" class="tooltiptext">
+                <span class="textKannada">ಪಠ್ಯವನ್ನು ನಕಲಿಸಿ - ಕನ್ನಡ</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <button onclick="transliterate()"><span class="footerLatin">Kannada [ˈkɐnːɐɖa]</span> | <span class="footerKannada">ಕನ್ನಡ</span></button>
+    </div>
+    
+    <div class="footerOfPage">
+      &nbsp;&nbsp;&nbsp;<img src="Flag_of_the_Kannada_people.png" alt="ಕನ್ನಡ - World Scripts Explorer" class="footerImage" height="19px" width="32px"/>&nbsp;&nbsp;&nbsp;<a href="https://worldscriptsexplorer.page/kn" target="_blank">ಕನ್ನಡ</a>&nbsp;&nbsp;&nbsp;2023 yshant&nbsp;&nbsp;&nbsp;
+    </div>
+    <script>
+      function hide() {
+        document.getElementById("tooltip1").classList.remove("block");
+        document.getElementById("tooltip2").classList.remove("block");
+      }
+      function show1() {
+        document.getElementById("tooltip1").classList.add("block");
+        var self = this;
+        setTimeout(function() {
+          self.hide();
+        },3000);
+      }
+      function show2() {
+        document.getElementById("tooltip2").classList.add("block");
+        var self = this;
+        setTimeout(function() {
+          self.hide();
+        },3000);
+      }
+      
+      function swapTransliteration() {
+        if (localStorage.getItem("direction") == null || localStorage.getItem("direction") == undefined ||  localStorage.getItem("direction") == "latin2kannada") {
+          localStorage.setItem("direction", "kannada2latin");
+          document.getElementById("textarea1").readOnly = true; 
+          document.getElementById('textarea2').removeAttribute('readonly');
+          document.getElementById("textarea2").focus();
+          document.getElementById("Kannada").classList.add("currentTab");
+          document.getElementById("Latin").classList.remove("currentTab");
+        } else if (localStorage.getItem("direction") == "kannada2latin") {
+          localStorage.setItem("direction", "latin2kannada");
+          document.getElementById('textarea1').removeAttribute('readonly');
+          document.getElementById("textarea2").readOnly = true;
+          if (localStorage.getItem("encoding") == "Latin")
+            document.getElementById("textarea1").focus();
+          document.getElementById("Kannada").classList.remove("currentTab");
+          document.getElementById("Latin").classList.add("currentTab");
+        }
+      }
+
+      function clearFooter() {
+        document.getElementsByClassName("footerOfPage")[0].style = "display:none";
+      }
+
+      function copyContent1() {
+        navigator.clipboard.writeText(document.getElementById("textarea1").value);
+      }
+
+      function copyContent2() {
+        navigator.clipboard.writeText(document.getElementById("textarea2").value);
+      }
+
+      function transliterate() {
+        if (document.getElementById("textarea1").value.indexOf("script>") > -1 || document.getElementById("textarea2").value.indexOf("script>") > -1) {
+          document.getElementById("textarea1").value = "";
+          document.getElementById("textarea2").value = "";
+          document.getElementById("textarea1").innerHTML = "";
+          document.getElementById("textarea2").innerHTML = "";
+        }
+        if (localStorage.getItem("direction") == null || localStorage.getItem("direction") == undefined || localStorage.getItem("direction") == "latin2kannada") {
+          const latinToKannada = {"0":"೦","1":"೧","2":"೨","3":"೩","4":"೪","5":"೫","6":"೬","7":"೭","8":"೮","9":"೯"," ":" "};
+          const middleTone = {"ā":"a","Ā":"a","ē":"e","Ē":"e","ẹ̄":"ẹ","Ẹ̄":"ẹ","ī":"i","Ī":"ī","n̄":"n","N̄":"n","N̄":"n","m̄":"m","M̄":"m","ō":"o","Ō":"o","ọ̄":"ọ","Ọ̄":"ọ","ū":"u","Ū":"u"};
+
+          let textLa = document.getElementById("textarea1").value;
+          
+          let resultKn = "";
+          for (let u = 0; u < textLa.length; u++ ) {
+            // Middle Tone convert to normal character
+            if (textLa[u].indexOf(middleTone) > -1) 
+              textLa[u] = middleTone[textLa[u]];
+            if (textLa[u].toLowerCase().indexOf("b") > -1 && textLa[(u-1)] && textLa[(u-1)].toLowerCase() == "g")
+              resultKn = resultKn.slice(0, -1) + latinToKannada["gb"];
+            else if (textLa[u].toLowerCase().indexOf("h") > -1 && textLa[(u-1)] && textLa[(u-1)].toLowerCase() == "s")
+              resultKn = resultKn.slice(0, -1) + latinToKannada["sh"];
+            else if (textLa[(u+1)] && (textLa[(u+1)].indexOf("`") > -1 || textLa[(u+1)].indexOf("̀") > -1) && latinToKannada[textLa[u]])
+              resultKn = resultKn + latinToKannada["`"] + latinToKannada[textLa[u]];
+            else if (textLa[u].indexOf("◌̀") > -1)
+              resultKn = resultKn + latinToKannada["q"] + latinToKannada[textLa[u]];
+            else if (textLa[u].indexOf("◌́") > -1)
+              resultKn = resultKn + latinToKannada["`"] + latinToKannada[textLa[u]];
+            else if (textLa[(u+1)] && (textLa[(u+1)].indexOf("´") > -1 || textLa[(u+1)].indexOf("́") > -1) && latinToKannada[textLa[u]])
+              resultKn = resultKn + latinToKannada["q"] + latinToKannada[textLa[u]];
+            else if (textLa[(u)].indexOf("\n") > -1)
+              resultKn = resultKn + "\n";
+            else if (textLa[u].indexOf("̄") > -1)
+              resultKn = resultKn;
+            else if (latinToKannada[textLa[u]] != undefined && latinToKannada[textLa[u]] != null && textLa[u] != "")
+              resultKn = resultKn + latinToKannada[textLa[u]];
+          }
+
+          document.getElementById("textarea2").value = resultKn;
+          document.getElementById("textarea2").innerHTML = resultKn;
+
+        } else if (localStorage.getItem("direction") == "kannada2latin") {
+          const diacritics = {
+            a: ["á", "à", "ā"],
+            e: ["é", "è", "ē"],
+            ẹ: ["ẹ́", "ẹ̀", "ẹ̄"],
+            i: ["í", "ì", "ī"],
+            m: ["ḿ", "m̀", "m̄"],
+            n: ["ń", "ǹ", "n̄"],
+            o: ["ó", "ò", "ō"],
+            ọ: ["ọ́", "ọ̀", "ọ̄"],
+            u: ["ú", "ù", "ū"]
+          };
+          var kannadaToLatin = {"೦":"0","೧":"1","೨":"2","೩":"3","೪":"4","೫":"5","೬":"6","೭":"7","೮":"8","೯":"9"," ":" "};
+
+          let resultLa = "";
+          let textKn = document.getElementById("textarea2").value;
+          for (let u = 0; u < textKn.length; u++ ) {
+            if (textKn[u] && (textKn[u].indexOf("ذ") > -1 || (textKn[(u+1)] && textKn[(u+1)].indexOf("̀") > -1)))
+              resultLa = resultLa + kannadaToLatin[textKn[u]];
+            else if (textKn[u] && textKn[u].indexOf("ذ") > -1)
+              resultLa = resultLa + kannadaToLatin["◌̀"] + kannadaToLatin[textKn[u]];
+            else if (textKn[u] && (textKn[u].indexOf("ض") > -1 || (textKn[(u+1)] && textKn[(u+1)].indexOf("́") > -1)))
+              resultLa = resultLa + kannadaToLatin[textKn[u]];
+            else if (textKn[u] && textKn[u].indexOf("ض") > -1)
+              resultLa = resultLa + kannadaToLatin["◌́"] + kannadaToLatin[textKn[u]];
+            else if (textKn[u].indexOf("\n") > -1)
+              resultLa = resultLa + "\n";
+            else if (diacritics[kannadaToLatin[textKn[u]]] && textKn[(u-1)] && textKn[(u-1)] == "ذ")
+              resultLa = resultLa.slice(0, -1).slice(0, -1) + diacritics[kannadaToLatin[textKn[u]]][0];
+            else if (diacritics[kannadaToLatin[textKn[u]]] && textKn[(u-1)] && textKn[(u-1)] == "ض")
+              resultLa = resultLa.slice(0, -1).slice(0, -1) + diacritics[kannadaToLatin[textKn[u]]][1];
+            else if (kannadaToLatin[textKn[u]] != undefined && kannadaToLatin[textKn[u]] != null && textKn[u] != "")
+              resultLa = resultLa + kannadaToLatin[textKn[u]];
+          }
+          document.getElementById("textarea1").value = resultLa;
+          document.getElementById("textarea1").innerHTML = resultLa;
+        }        
+      }
+
+      function swap(json){
+        var ret = {};
+        for(var key in json){
+            ret[json[key]] = key;
+        }
+        return ret;
+      }
+
+      function openTab(evt, localeName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(localeName).style.display = "block";
+        evt.currentTarget.className += " active";
+        localStorage.setItem("encoding", localeName);
+        transliterate();
+        swapTransliteration();
+      }
+
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+      document.getElementById("textarea1").focus();
+      if (localStorage.getItem("direction") == null || localStorage.getItem("direction") == undefined || localStorage.getItem("direction") == "kannada2latin") {
+        localStorage.setItem("direction", "latin2kannada");
+        localStorage.setItem("encoding", "Latin");
+      }
+    </script>
+  </body>
+</html>
