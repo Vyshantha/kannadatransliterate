@@ -132,7 +132,7 @@ body{
   font-size: 2em;
 }
 .kannadaTabText {
-  width: 100%;
+  width: 50%;
 }
 .latinCopyText {
   font-size: 0.7em;
@@ -255,7 +255,7 @@ body{
 
 .currentTab {
   border: 2px solid black;
-  width: 100%;
+  width: 50%;
 }
 
 .widthOfTab {
