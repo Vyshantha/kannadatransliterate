@@ -136,7 +136,6 @@ function openTab(evt, localeName) {
   transliterate();
 }
 
-// Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 document.getElementById("textarea1").focus();
 if (localStorage.getItem("direction") == null || localStorage.getItem("direction") == undefined || localStorage.getItem("direction") == "kannada2latin") {
