@@ -85,9 +85,9 @@ function transliterate() {
     document.getElementById("textarea2").innerHTML = resultKn;
 
   } else if (localStorage.getItem("direction") == "kannada2latin") {
-    const kannadaToLatin = {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9","೦":"0","೧":"1","೨":"2","೩":"3","೪":"4","೫":"5","೬":"6","೭":"7","೮":"8","೯":"9"," ":" ",".":".",",":",",";":";","?":"?","!":"!","\"":"\"","'":"'","(":"(",")":")",":":":","+":"+","=":"=","/":"/","-":"-","<":"<",">":">","*":"*","|":"|","\\":"\\","₹":"₹","{":"{","}":"}","[":"[","]":"]","_":"_","%":"%","ಅ":"a","ಆ":"ā","ಇ":"i","ಈ":"ī","ಉ":"u","ಊ":"ū","ಋ":"r̥","ೠ":"r̥̄","ಌ":"l̥","ೡ":"l̥̄","ಎ":"e","ಏ":"ē","ಐ":"ai","ಒ":"o","ಓ":"ō","ಔ":"au","ಅಂ":"aṇ","ಅಃ":"aḥ","ೱ":" ","ೲ":" ","ಀ":" ","\\u0CDD":"nh","಄":" ","ಕ":"ka","ಖ":"kha","ಗ":"ga","ಘ":"gha","ಙ":"ṅa","ಚ":"ca","ಛ":"cha","ಜ":"ja","ಝ":"jha","ಞ":"ña","ಟ":"ṭa","ಠ":"ṭha","ಡ":"ḍa","ಢ":"ḍha","ಣ":"ṇa","ತ":"ta","ಥ":"tha","ದ":"da","ಧ":"dha","ನ":"na","ಪ":"pa","ಫ":"pha","ಬ":"ba","ಭ":"bha","ಮ":"ma","ಯ":"ya","ರ":"ra","ಱ":"ṟa","ಲ":"la","ವ":"va","ಶ":"śa","ಷ":"ṣa","ಸ":"sa","ಹ":"ha","ಳ":"ḷa","ೞ":"ḻa","a":"a","b":"b","c":"c","d":"d","e":"e","f":"f","g":"g","h":"h","i":"i","j":"j","k":"k","l":"l","m":"m","n":"n","o":"o","p":"p","q":"q","r":"r","s":"s","t":"t","u":"u","v":"v","w":"w","x":"x","y":"y","z":"z","A":"A","B":"B","C":"C","D":"D","E":"E","F":"F","G":"G","H":"H","I":"I","J":"J","K":"K","L":"L","M":"M","N":"N","O":"O","P":"P","Q":"Q","R":"R","S":"S","T":"T","U":"U","V":"V","W":"W","X":"X","Y":"Y","Z":"Z"};
+    const kannadaToLatin = {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9","೦":"0","೧":"1","೨":"2","೩":"3","೪":"4","೫":"5","೬":"6","೭":"7","೮":"8","೯":"9"," ":" ",".":".",",":",",";":";","?":"?","!":"!","\"":"\"","'":"'","(":"(",")":")",":":":","+":"+","=":"=","/":"/","-":"-","<":"<",">":">","*":"*","|":"|","\\":"\\","₹":"₹","{":"{","}":"}","[":"[","]":"]","_":"_","%":"%","ಅ":"a","ಆ":"ā","ಇ":"i","ಈ":"ī","ಉ":"u","ಊ":"ū","ಋ":"r̥","ೠ":"r̥̄","ಌ":"l̥","ೡ":"l̥̄","ಎ":"e","ಏ":"ē","ಐ":"ai","ಒ":"o","ಓ":"ō","ಔ":"au","ಅಂ":"aṃ","ಅಃ":"aḥ","ೱ":" ","ೲ":" ","ಀ":" ","\\u0CDD":"nh","಄":" ","ಕ":"ka","ಖ":"kha","ಗ":"ga","ಘ":"gha","ಙ":"ṅa","ಚ":"ca","ಛ":"cha","ಜ":"ja","ಝ":"jha","ಞ":"ña","ಟ":"ṭa","ಠ":"ṭha","ಡ":"ḍa","ಢ":"ḍha","ಣ":"ṇa","ತ":"ta","ಥ":"tha","ದ":"da","ಧ":"dha","ನ":"na","ಪ":"pa","ಫ":"pha","ಬ":"ba","ಭ":"bha","ಮ":"ma","ಯ":"ya","ರ":"ra","ಱ":"ṟa","ಲ":"la","ವ":"va","ಶ":"śa","ಷ":"ṣa","ಸ":"sa","ಹ":"ha","ಳ":"ḷa","ೞ":"ḻa","a":"a","b":"b","c":"c","d":"d","e":"e","f":"f","g":"g","h":"h","i":"i","j":"j","k":"k","l":"l","m":"m","n":"n","o":"o","p":"p","q":"q","r":"r","s":"s","t":"t","u":"u","v":"v","w":"w","x":"x","y":"y","z":"z","A":"A","B":"B","C":"C","D":"D","E":"E","F":"F","G":"G","H":"H","I":"I","J":"J","K":"K","L":"L","M":"M","N":"N","O":"O","P":"P","Q":"Q","R":"R","S":"S","T":"T","U":"U","V":"V","W":"W","X":"X","Y":"Y","Z":"Z"};
 
-    const diacritics = {"್":" ","ಾ":"ā","ಿ":"i","ೀ":"ī","ು":"u","ೂ":"ū","ೃ":"r̥","ೄ":"r̥̄","ೢ":"l̥","ೣ":"l̥̄","ೆ":"e","ೇ":"ē","ೈ":"ai","ೊ":"o","ೋ":"ō","ೌ":"au","ಂ":"ṇ","ಃ":"ḥ","಼":"ʾ","ಁ":"ṃ","\\u0CF3":"m̐","ಽ":"'"}; 
+    const diacritics = {"್":" ","ಾ":"ā","ಿ":"i","ೀ":"ī","ು":"u","ೂ":"ū","ೃ":"r̥","ೄ":"r̥̄","ೢ":"l̥","ೣ":"l̥̄","ೆ":"e","ೇ":"ē","ೈ":"ai","ೊ":"o","ೋ":"ō","ೌ":"au","ಂ":"ṃ","ಃ":"ḥ","಼":"ʾ","ಁ":"ṃ","\\u0CF3":"m̐","ಽ":"'"}; 
     // u0CF3 : m̐ - https://www.unicode.org/L2/L2021/21114-kannada-sign-anusvara.pdf
 
     // Anusvara - determine rule ṇ & ṃ : English Transliteration of Kannada Words with Anusvara and Visarga : https://link.springer.com/chapter/10.1007/978-981-15-3514-7_28
@@ -109,20 +109,23 @@ function transliterate() {
         } else if (textKn[u] == "್") {
           resultLa = resultLa.slice(0, -1);
         } else {
-          if (textKn[u] == "ಂ" || textKn[u] == "ಃ") // Anusvara & Visarga
+          if (textKn[u] == "ಂ" || textKn[u] == "ಃ") { // Anusvara & Visarga
             resultLa = resultLa.slice(0, -1) + 'a' + diacritics[textKn[u]];
-          else
+          } else {
             resultLa = resultLa.slice(0, -1) + diacritics[textKn[u]];
+          }
         }
       } else if (textKn[u-1] == "ಅ" && diacritics[textKn[u]]) {
           resultLa = resultLa.slice(0, -1) +  kannadaToLatin[textKn[u-1] + textKn[u]];
       } else if (textKn[u].indexOf("\n") > -1) {
         resultLa = resultLa + "\n";
       } else if (kannadaToLatin[textKn[u]] != undefined && kannadaToLatin[textKn[u]] != null && textKn[u] != "") {
-        if (textKn[u-1] && textKn[u-1] == "ಂ" && followingAnusvaraLetter.indexOf(textKn[u]) > -1)
-          resultLa = resultLa.slice(0, -1) + "ṃ" + kannadaToLatin[textKn[u]];
-        else
+        // Anusvara rule for modern Kannada language
+        if (textKn[u-1] && textKn[u-1] == "ಂ" && followingAnusvaraLetter.indexOf(textKn[u]) == -1) {
+          resultLa = resultLa.slice(0, -1) + "ṇ" + kannadaToLatin[textKn[u]];
+        } else {
           resultLa = resultLa + kannadaToLatin[textKn[u]];
+        }
       }
     }
     document.getElementById("textarea1").value = resultLa;
