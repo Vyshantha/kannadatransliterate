@@ -96,7 +96,7 @@ function transliterate() {
     /*  
       Avagraha - lengthen vowel occuring prior
       Nuqta approprimations
-      Transliteration for Sanskrit, Marathi, older Kannada, old Tamil, modern Kannada and modern Tamil, Havigannada, Konkani, Tulu, Awadhi
+      Transliteration for Sanskrit, Marathi, older Kannada, old Tamil, modern Kannada, Havigannada, Konkani, Tulu, Kodava, Badaga, Beary, Sankethi
       Function of non-punctuation approximated - ೱ ೲ ಀ ಄
     */
 
