@@ -60,7 +60,7 @@ function transliterate() {
 
     const diacritics = {"ā":"ಾ","i":"ಿ","ī":"ೀ","u":"ು","ū":"ೂ","r̥":"ೃ","r̥̄":"ೄ","l̥":"ೢ","l̥̄":"ೣ","e":"ೆ","ē":"ೇ","ai":"ೈ","o":"ೊ","ō":"ೋ","au":"ೌ","ṇ":"ಂ","ḥ":"ಃ","ʾ":"಼","":"ಁ","ṃ":"\\u0CF3","'":"ಽ"}; // Anusvara, Avagraha, Nuqta approprimations
 
-    // TODO - not recognised ṇ & ḥ distinguish & vottakshara
+    // TODO - recognised & distinguish anusvara, visarga and ottakshara
     let resultKn = "";
     let textLa = document.getElementById("textarea1").value.toLowerCase();
     for (let u = 0; u < textLa.length; u++ ) {
