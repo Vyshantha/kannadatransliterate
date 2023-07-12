@@ -105,23 +105,23 @@ function transliterate() {
     let resultLa = "";
     let textKn = document.getElementById("textarea2").value;
     for (let u = 0; u < textKn.length; u++ ) {
+      /* if (textKn[u] && diacritics[textKn[u]] && textKn[u-1] && swaras.indexOf(textKn[u-1]) > -1) {
+        // Half swara are not pronounced : http://nannabaraha.blogspot.com/2017/02/blog-post_27.html
+        let ulpaswara1 = ['ೠ', 'ೡ'];
+        let ulpaswara2 = ['ಋ', 'ಌ', 'ಐ', 'ಔ'];
+        if (ulpaswara1.indexOf(textKn[u-1]) > -1)
+          resultLa = resultLa.slice(0, -3);
+        else if (ulpaswara2.indexOf(textKn[u-1]) > -1)
+          resultLa = resultLa.slice(0, -2);
+        else 
+          resultLa = resultLa.slice(0, -1);
+        continue;
+      } */
       if (textKn[u] != " " && diacritics[textKn[u]] && textKn[u-1] != "ಅ") {
         if (textKn[u] != " " && diacritics[textKn[u-1]] && diacritics[textKn[u]]) {
           resultLa = resultLa + diacritics[textKn[u]];
         } else if (textKn[u] == "್") {
-          if (textKn[u-1] && swaras.indexOf(textKn[u-1]) > -1) {
-            // Half swara are not pronounced - ಅ್ ಆ್ ಇ್ ಈ್ ಉ್ ಊ್ ಋ್ ೠ್ ಌ್ ೡ್ ಎ್ ಏ್ ಐ್ ಒ್ ಓ್ ಔ್ : http://nannabaraha.blogspot.com/2017/02/blog-post_27.html
-            let ulpaswara1 = ['ೠ', 'ೡ'];
-            let ulpaswara2 = ['ಋ', 'ಌ', 'ಐ', 'ಔ'];
-            if (ulpaswara1.indexOf(textKn[u-1]) > -1)
-              resultLa = resultLa.slice(0, -3);
-            else if (ulpaswara2.indexOf(textKn[u-1]) > -1)
-              resultLa = resultLa.slice(0, -2);
-            else 
-              resultLa = resultLa.slice(0, -1)
-          } else {
-            resultLa = resultLa.slice(0, -1);
-          }
+          resultLa = resultLa.slice(0, -1);
         } else {
           if (textKn[u] == "ಂ" || textKn[u] == "ಃ") { // Anusvara & Visarga
             if (textKn[u-1] && swaras.indexOf(textKn[u-1])) {
