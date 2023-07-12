@@ -56,6 +56,8 @@ function transliterate() {
     document.getElementById("textarea2").innerHTML = "";
   }
   if (localStorage.getItem("direction") == null || localStorage.getItem("direction") == undefined || localStorage.getItem("direction") == "latin2kannada") {
+    // Standard Unicode Proposal : https://unicode.org/L2/L2003/03068-kannada.pdf
+    // Unicode version 10 : http://www.unicode.org/versions/Unicode10.0.0/ch12.pdf (Page 497 - 500)
     const latinToKannada = {"0":"೦","1":"೧","2":"೨","3":"೩","4":"೪","5":"೫","6":"೬","7":"೭","8":"೮","9":"೯"," ":" ",".":".",",":",",";":";","?":"?","!":"!","\"":"\"","'":"'","(":"(",")":")",":":":","+":"+","=":"=","/":"/","-":"-","<":"<",">":">","*":"*","|":"|","\\":"\\","₹":"₹","{":"{","}":"}","[":"[","]":"]","_":"_","%":"%","a":"ಅ","ā":"ಆ","i":"ಇ","ī":"ಈ","u":"ಉ","ū":"ಊ","r̥":"ಋ","r̥̄":"ೠ","l̥":"ಌ","l̥̄":"ೡ","e":"ಎ","ē":"ಏ","ai":"ಐ","o":"ಒ","ō":"ಓ","au":"ಔ","aṃ":"ಅಂ","aḥ":"ಅಃ","":"ೱ","":"ೲ","":"ಀ","nh":"\\u0CDD","":"಄","ka":"ಕ","kha":"ಖ","ga":"ಗ","gha":"ಘ","ṅa":"ಙ","ca":"ಚ","cha":"ಛ","ja":"ಜ","jha":"ಝ","ña":"ಞ","ṭa":"ಟ","ṭha":"ಠ","ḍa":"ಡ","ḍha":"ಢ","ṇa":"ಣ","ta":"ತ","tha":"ಥ","da":"ದ","dha":"ಧ","na":"ನ","pa":"ಪ","pha":"ಫ","ba":"ಬ","bha":"ಭ","ma":"ಮ","ya":"ಯ","ra":"ರ","ṟa":"ಱ","la":"ಲ","va":"ವ","śa":"ಶ","ṣa":"ಷ","sa":"ಸ","ha":"ಹ","ḷa":"ಳ","ḻa":"ೞ"};
 
     const diacritics = {"ā":"ಾ","i":"ಿ","ī":"ೀ","u":"ು","ū":"ೂ","r̥":"ೃ","r̥̄":"ೄ","l̥":"ೢ","l̥̄":"ೣ","e":"ೆ","ē":"ೇ","ai":"ೈ","o":"ೊ","ō":"ೋ","au":"ೌ","ṇ":"ಂ","ḥ":"ಃ","ʾ":"಼","":"ಁ","ṃ":"\\u0CF3","'":"ಽ"}; // Anusvara, Avagraha, Nuqta approprimations
@@ -87,7 +89,7 @@ function transliterate() {
   } else if (localStorage.getItem("direction") == "kannada2latin") {
     const kannadaToLatin = {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9","೦":"0","೧":"1","೨":"2","೩":"3","೪":"4","೫":"5","೬":"6","೭":"7","೮":"8","೯":"9"," ":" ",".":".",",":",",";":";","?":"?","!":"!","\"":"\"","'":"'","(":"(",")":")",":":":","+":"+","=":"=","/":"/","-":"-","<":"<",">":">","*":"*","|":"|","\\":"\\","₹":"₹","{":"{","}":"}","[":"[","]":"]","_":"_","%":"%","ಅ":"a","ಆ":"ā","ಇ":"i","ಈ":"ī","ಉ":"u","ಊ":"ū","ಋ":"r̥","ೠ":"r̥̄","ಌ":"l̥","ೡ":"l̥̄","ಎ":"e","ಏ":"ē","ಐ":"ai","ಒ":"o","ಓ":"ō","ಔ":"au","ಅಂ":"aṃ","ಅಃ":"aḥ","ೱ":" ","ೲ":" ","ಀ":" ","\\u0CDD":"nh","಄":" ","ಕ":"ka","ಖ":"kha","ಗ":"ga","ಘ":"gha","ಙ":"ṅa","ಚ":"ca","ಛ":"cha","ಜ":"ja","ಝ":"jha","ಞ":"ña","ಟ":"ṭa","ಠ":"ṭha","ಡ":"ḍa","ಢ":"ḍha","ಣ":"ṇa","ತ":"ta","ಥ":"tha","ದ":"da","ಧ":"dha","ನ":"na","ಪ":"pa","ಫ":"pha","ಬ":"ba","ಭ":"bha","ಮ":"ma","ಯ":"ya","ರ":"ra","ಱ":"ṟa","ಲ":"la","ವ":"va","ಶ":"śa","ಷ":"ṣa","ಸ":"sa","ಹ":"ha","ಳ":"ḷa","ೞ":"ḻa","a":"a","b":"b","c":"c","d":"d","e":"e","f":"f","g":"g","h":"h","i":"i","j":"j","k":"k","l":"l","m":"m","n":"n","o":"o","p":"p","q":"q","r":"r","s":"s","t":"t","u":"u","v":"v","w":"w","x":"x","y":"y","z":"z","A":"A","B":"B","C":"C","D":"D","E":"E","F":"F","G":"G","H":"H","I":"I","J":"J","K":"K","L":"L","M":"M","N":"N","O":"O","P":"P","Q":"Q","R":"R","S":"S","T":"T","U":"U","V":"V","W":"W","X":"X","Y":"Y","Z":"Z"};
 
-    const swaras = ['ಅ', 'ಆ', 'ಇ', 'ಈ', 'ಊ', 'ಉ', 'ಋ', 'ೠ', 'ಎ', 'ಏ', 'ಐ', 'ಒ', 'ಓ', 'ಔ'];
+    const swaras = ['ಅ', 'ಆ', 'ಇ', 'ಈ', 'ಊ', 'ಉ', 'ಋ', 'ೠ', 'ಌ', 'ೡ', 'ಎ', 'ಏ', 'ಐ', 'ಒ', 'ಓ', 'ಔ'];
 
     const diacritics = {"್":" ","ಾ":"ā","ಿ":"i","ೀ":"ī","ು":"u","ೂ":"ū","ೃ":"r̥","ೄ":"r̥̄","ೢ":"l̥","ೣ":"l̥̄","ೆ":"e","ೇ":"ē","ೈ":"ai","ೊ":"o","ೋ":"ō","ೌ":"au","ಂ":"ṃ","ಃ":"ḥ","಼":"ʾ","ಁ":"ṃ","\\u0CF3":"m̐","ಽ":"'"}; 
     // u0CF3 : m̐ - https://www.unicode.org/L2/L2021/21114-kannada-sign-anusvara.pdf
@@ -107,7 +109,19 @@ function transliterate() {
         if (textKn[u] != " " && diacritics[textKn[u-1]] && diacritics[textKn[u]]) {
           resultLa = resultLa + diacritics[textKn[u]];
         } else if (textKn[u] == "್") {
-          resultLa = resultLa.slice(0, -1);
+          if (textKn[u-1] && swaras.indexOf(textKn[u-1]) > -1) {
+            // Half swara are not pronounced - ಅ್ ಆ್ ಇ್ ಈ್ ಉ್ ಊ್ ಋ್ ೠ್ ಌ್ ೡ್ ಎ್ ಏ್ ಐ್ ಒ್ ಓ್ ಔ್ : http://nannabaraha.blogspot.com/2017/02/blog-post_27.html
+            let ulpaswara1 = ['ೠ', 'ೡ'];
+            let ulpaswara2 = ['ಋ', 'ಌ', 'ಐ', 'ಔ'];
+            if (ulpaswara1.indexOf(textKn[u-1]) > -1)
+              resultLa = resultLa.slice(0, -3);
+            else if (ulpaswara2.indexOf(textKn[u-1]) > -1)
+              resultLa = resultLa.slice(0, -2);
+            else 
+              resultLa = resultLa.slice(0, -1)
+          } else {
+            resultLa = resultLa.slice(0, -1);
+          }
         } else {
           if (textKn[u] == "ಂ" || textKn[u] == "ಃ") { // Anusvara & Visarga
             if (textKn[u-1] && swaras.indexOf(textKn[u-1])) {
@@ -116,10 +130,17 @@ function transliterate() {
               resultLa = resultLa.slice(0, -1) + 'a' + diacritics[textKn[u]];
             }
           } else {
-            resultLa = resultLa.slice(0, -1) + diacritics[textKn[u]];
+            // Nukta signs in Kannada ಜ಼ = 'za' & ಫ಼ = 'fa'
+            if (textKn[u] == "಼" && textKn[u-1] && textKn[u-1] == "ಜ") {
+              resultLa = resultLa.slice(0, -2) + "za";
+            } else if (textKn[u] == "಼" && textKn[u-1] && textKn[u-1] == "ಫ") {
+              resultLa = resultLa.slice(0, -3) + "fa";
+            } else {
+              resultLa = resultLa.slice(0, -1) + diacritics[textKn[u]];
+            }
           }
         }
-      } else if (textKn[u-1] == "ಅ" && diacritics[textKn[u]]) {
+      } else if (textKn[u-1] == "ಅ" && diacritics[textKn[u]] && textKn[u] != "್") {
           resultLa = resultLa.slice(0, -1) +  kannadaToLatin[textKn[u-1] + textKn[u]];
       } else if (textKn[u].indexOf("\n") > -1) {
         resultLa = resultLa + "\n";
