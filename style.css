@@ -131,6 +131,9 @@ body{
 .kannadaTab {
   font-size: 2em;
 }
+.kannadaTabSmallScreen {
+  width: 100% !important;
+}
 .kannadaTabText {
   width: 50%;
 }
@@ -251,6 +254,14 @@ body{
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
+}
+
+.tabcontentSmallScreen {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  width: 100% !important;
 }
 
 .currentTab {
