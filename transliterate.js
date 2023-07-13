@@ -56,43 +56,57 @@ function transliterate() {
     document.getElementById("textarea2").innerHTML = "";
   }
   // Standard Unicode Proposal : https://unicode.org/L2/L2003/03068-kannada.pdf
-  // Unicode version 10 : http://www.unicode.org/versions/Unicode10.0.0/ch12.pdf (Page 497 - 500)
+  // Unicode version 10 : http://www.unicode.org/versions/Unicode10.0.0/ch12.pdf (Page 497 - 500) and u0CF3 : m̐ - https://www.unicode.org/L2/L2021/21114-kannada-sign-anusvara.pdf
+
   if (localStorage.getItem("direction") == null || localStorage.getItem("direction") == undefined || localStorage.getItem("direction") == "latin2kannada") {
-    const latinToKannada = {"0":"೦","1":"೧","2":"೨","3":"೩","4":"೪","5":"೫","6":"೬","7":"೭","8":"೮","9":"೯"," ":" ",".":".",",":",",";":";","?":"?","!":"!","\"":"\"","'":"'","(":"(",")":")",":":":","+":"+","=":"=","/":"/","-":"-","<":"<",">":">","*":"*","|":"|","\\":"\\","₹":"₹","{":"{","}":"}","[":"[","]":"]","_":"_","%":"%","a":"ಅ","ā":"ಆ","i":"ಇ","ī":"ಈ","u":"ಉ","ū":"ಊ","r̥":"ಋ","r̥̄":"ೠ","l̥":"ಌ","l̥̄":"ೡ","e":"ಎ","ē":"ಏ","ai":"ಐ","o":"ಒ","ō":"ಓ","au":"ಔ","aṃ":"ಅಂ","aḥ":"ಅಃ","":"ೱ","":"ೲ","":"ಀ","nh":"\\u0CDD","":"಄","ka":"ಕ","kha":"ಖ","ga":"ಗ","gha":"ಘ","ṅa":"ಙ","ca":"ಚ","cha":"ಛ","ja":"ಜ","jha":"ಝ","ña":"ಞ","ṭa":"ಟ","ṭha":"ಠ","ḍa":"ಡ","ḍha":"ಢ","ṇa":"ಣ","ta":"ತ","tha":"ಥ","da":"ದ","dha":"ಧ","na":"ನ","pa":"ಪ","pha":"ಫ","ba":"ಬ","bha":"ಭ","ma":"ಮ","ya":"ಯ","ra":"ರ","ṟa":"ಱ","la":"ಲ","va":"ವ","śa":"ಶ","ṣa":"ಷ","sa":"ಸ","ha":"ಹ","ḷa":"ಳ","ḻa":"ೞ"};
+    const latinToKannada = {"0":"೦","1":"೧","2":"೨","3":"೩","4":"೪","5":"೫","6":"೬","7":"೭","8":"೮","9":"೯"," ":"  ",".":".",",":",",";":";","?":"?","!":"!","\"":"\"","'":"'","(":"(",")":")",":":":","+":"+","=":"=","/":"/","-":"-","<":"<",">":">","*":"*","|":"|","\\":"\\","₹":"₹","{":"{","}":"}","[":"[","]":"]","_":"_","%":"%","@":"@","ˆ":"ˆ","`":"`","´":"´","˜":"˜","·":"·","˙":"˙","¯":"¯","¨":"¨","˚":"˚","˝":"˝","ˇ":"ˇ","¸":"¸","˛":"˛","˘":"˘","’":"’","a":"ಅ","ā":"ಆ","i":"ಇ","ī":"ಈ","u":"ಉ","ū":"ಊ","r̥":"ಋ","r̥̄":"ೠ","l̥":"ಌ","l̥̄":"ೡ","e":"ಎ","ē":"ಏ","ai":"ಐ","o":"ಒ","ō":"ಓ","au":"ಔ","aṃ":"ಅಂ","aḥ":"ಅಃ","":"ೱ","nh":"\\u0CDD","ka":"ಕ","kha":"ಖ","ga":"ಗ","gha":"ಘ","ṅa":"ಙ","ca":"ಚ","cha":"ಛ","ja":"ಜ","jha":"ಝ","ña":"ಞ","ṭa":"ಟ","ṭha":"ಠ","ḍa":"ಡ","ḍha":"ಢ","ṇa":"ಣ","ta":"ತ","tha":"ಥ","da":"ದ","dha":"ಧ","na":"ನ","pa":"ಪ","pha":"ಫ","ba":"ಬ","bha":"ಭ","ma":"ಮ","ya":"ಯ","ra":"ರ","ṟa":"ಱ","la":"ಲ","va":"ವ","śa":"ಶ","ṣa":"ಷ","sa":"ಸ","ha":"ಹ","ḷa":"ಳ","ḻa":"ೞ","fa":"ಫ಼","za":"ಜ಼","A":"ಅ","Ā":"ಆ","I":"ಇ","Ī":"ಈ","U":"ಉ","Ū":"ಊ","R̥":"ಋ","Ṝ":"ೠ","L̥":"ಌ","L̥̄":"ೡ","E":"ಎ","Ē":"ಏ","Ai":"ಐ","O":"ಒ","Ō":"ಓ","Au":"ಔ","Aṃ":"ಅಂ","Aḥ":"ಅಃ","Nh":"\\u0CDD","Ka":"ಕ","Kha":"ಖ","Ga":"ಗ","Gha":"ಘ","Ṅa":"ಙ","Ca":"ಚ","Cha":"ಛ","Ja":"ಜ","Jha":"ಝ","Ña":"ಞ","Ṭa":"ಟ","Ṭha":"ಠ","Ḍa":"ಡ","Ḍha":"ಢ","Ṇa":"ಣ","Ta":"ತ","Tha":"ಥ","Da":"ದ","Dha":"ಧ","Na":"ನ","Pa":"ಪ","Pha":"ಫ","Ba":"ಬ","Bha":"ಭ","Ma":"ಮ","Ya":"ಯ","Ra":"ರ","Ṟa":"ಱ","La":"ಲ","Va":"ವ","Śa":"ಶ","Ṣa":"ಷ","Sa":"ಸ","Ha":"ಹ","Ḷa":"ಳ","Ḻa":"ೞ","Fa":"ಫ಼","Za":"ಜ಼"};
 
-    const diacritics = {"ā":"ಾ","i":"ಿ","ī":"ೀ","u":"ು","ū":"ೂ","r̥":"ೃ","r̥̄":"ೄ","l̥":"ೢ","l̥̄":"ೣ","e":"ೆ","ē":"ೇ","ai":"ೈ","o":"ೊ","ō":"ೋ","au":"ೌ","ṇ":"ಂ","ḥ":"ಃ","ʾ":"಼","":"ಁ","ṃ":"\\u0CF3","'":"ಽ"}; // Anusvara, Avagraha, Nuqta approprimations
-
-    // TODO - not recognised ṇ & ḥ distinguish & vottakshara
+    const diacritics = {"ā":"ಾ","i":"ಿ","ī":"ೀ","u":"ು","ū":"ೂ","r̥":"ೃ","r̥̄":"ೄ","l̥":"ೢ","l̥̄":"ೣ","e":"ೆ","ē":"ೇ","ai":"ೈ","o":"ೊ","ō":"ೋ","au":"ೌ","ṇ":"ಂ","ṃ":"ಂ","ḥ":"ಃ","ʾ":"಼","Ā":"ಾ","I":"ಿ","Ī":"ೀ","U":"ು","Ū":"ೂ","R̥":"ೃ","Ṝ":"ೄ","L̥":"ೢ","L̥̄":"ೣ","E":"ೆ","Ē":"ೇ","Ai":"ೈ","O":"ೊ","Ō":"ೋ","Au":"ೌ","Aṇ":"ಂ","Aṃ":"ಂ","Aḥ":"ಃ","'":"ಽ"}; // Anunasika and special anuswara not accounted - "ṃ":"ಁ","ṃ":"\\u0CF3","Ṃ":"ಁ","Ṃ":"\\u0CF3"
+    
     let resultKn = "";
     let textLa = document.getElementById("textarea1").value.toLowerCase();
     for (let u = 0; u < textLa.length; u++ ) {
-      if (textLa[u] != " " && latinToKannada[textLa[u] + "a"]) {
-        if (textLa[u-1] && textLa[u-1] != " " && latinToKannada[textLa[u-1] + textLa[u] + "a"])
-          resultKn = resultKn + latinToKannada[textLa[u-1] + textLa[u] + "a"] + "್";
+      if (textLa[u] != " " && textLa[u-1] && textLa[u-1] != " " && latinToKannada[textLa[u-1] + textLa[u] + "a"]) {
+        resultKn = resultKn.slice(0, -2) + latinToKannada[textLa[u-1] + textLa[u] + "a"] + "್";
+      } else if (textLa[u] != " " && latinToKannada[textLa[u] + "a"] && !diacritics[textLa[u]]) {
+        resultKn = resultKn + latinToKannada[textLa[u] + "a"] + "್";
+      } else if (textLa[u] != " " && textLa[u-1] && textLa[u-1] != " " && diacritics[textLa[u]] && !latinToKannada[textLa[u-1] + textLa[u]] && textLa[u-1].indexOf("\n") == -1) {
+        if (textLa[u-1] && latinToKannada[textLa[u-1]])
+          resultKn = resultKn + diacritics[textLa[u]];
         else
-          resultKn = resultKn + latinToKannada[textLa[u] + "a"] + "್";
-      } else if (textLa[u] != " " && textLa[u-1] && textLa[u-1] != " " && diacritics[textLa[u]]) 
-        resultKn = resultKn.slice(0, -1) + diacritics[textLa[u]];
-      else if (textLa[u] != " " && textLa[u-1] && textLa[u-1] != " " && textLa[u-2] && textLa[u-2] != " " && latinToKannada[textLa[u-2] + textLa[u-1] + textLa[u]])
-        resultKn = resultKn.slice(0, -4) + latinToKannada[textLa[u-2] + textLa[u-1] + textLa[u]];
-      else if (textLa[u] != " " && textLa[u-1] && textLa[u-1] != " " && latinToKannada[textLa[u-1] + textLa[u]])
-        resultKn = resultKn.slice(0, -2) + latinToKannada[textLa[u-1] + textLa[u]];
-      else if (textLa[(u)].indexOf("\n") > -1)
+          resultKn = resultKn.slice(0, -1) + diacritics[textLa[u]];
+      } else if (textLa[u] != " " && textLa[u-1] && textLa[u-1] != " " && textLa[u-2] && textLa[u-2] != " " && latinToKannada[textLa[u-2] + textLa[u-1] + textLa[u]]) {
+        if (textLa[u-1] == "h") // Aspirated Vyanjana
+          resultKn = resultKn.slice(0, -2) + latinToKannada[textLa[u-2] + textLa[u-1] + textLa[u]];
+        else
+          resultKn = resultKn.slice(0, -4) + latinToKannada[textLa[u-2] + textLa[u-1] + textLa[u]];
+      } else if (textLa[u] != " " && textLa[u-1] && textLa[u-1] != " " && latinToKannada[textLa[u-1] + textLa[u]]) {
+        if (textLa[u-1] && latinToKannada[textLa[u-1] + textLa[u]]) {
+          if (textLa[u-1] == "z" || textLa[u-1] == "f") // Nukta special case
+            resultKn = resultKn.slice(0, -3) + latinToKannada[textLa[u-1] + textLa[u]];
+          else 
+            resultKn = resultKn.slice(0, -2) + latinToKannada[textLa[u-1] + textLa[u]];
+        } else if (textLa[u-2] && textLa[u-1] && latinToKannada[textLa[u-2] + textLa[u-1] + textLa[u]]) {
+          resultKn = resultKn.slice(0, -3) + latinToKannada[textLa[u-2] + textLa[u-1] + textLa[u]];
+        }
+      } else if (textLa[u-1] == " " && !latinToKannada[textLa[u]] && diacritics[textLa[u]]) {
+        resultKn = resultKn + diacritics[textLa[u]];
+      } else if (textLa[u].indexOf("\n") > -1) {
         resultKn = resultKn + "\n";
-      else if (latinToKannada[textLa[u]] != undefined && latinToKannada[textLa[u]] != null && textLa[u] != "")
-        resultKn = resultKn + latinToKannada[textLa[u]];  // Function of non-punctuation approximated - ಽ ೱ ೲ ಀ ಄
+      } else if (latinToKannada[textLa[u]] != undefined && latinToKannada[textLa[u]] != null && textLa[u] != "") {
+        resultKn = resultKn + latinToKannada[textLa[u]];
+      }
     }
 
     document.getElementById("textarea2").value = resultKn;
     document.getElementById("textarea2").innerHTML = resultKn;
 
   } else if (localStorage.getItem("direction") == "kannada2latin") {
-    const kannadaToLatin = {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9","೦":"0","೧":"1","೨":"2","೩":"3","೪":"4","೫":"5","೬":"6","೭":"7","೮":"8","೯":"9"," ":" ",".":".",",":",",";":";","?":"?","!":"!","\"":"\"","'":"'","(":"(",")":")",":":":","+":"+","=":"=","/":"/","-":"-","<":"<",">":">","*":"*","|":"|","\\":"\\","₹":"₹","{":"{","}":"}","[":"[","]":"]","_":"_","%":"%","ಅ":"a","ಆ":"ā","ಇ":"i","ಈ":"ī","ಉ":"u","ಊ":"ū","ಋ":"r̥","ೠ":"r̥̄","ಌ":"l̥","ೡ":"l̥̄","ಎ":"e","ಏ":"ē","ಐ":"ai","ಒ":"o","ಓ":"ō","ಔ":"au","ಅಂ":"aṃ","ಅಃ":"aḥ","ೱ":" ","ೲ":" ","ಀ":" ","\\u0CDD":"nh","಄":" ","ಕ":"ka","ಖ":"kha","ಗ":"ga","ಘ":"gha","ಙ":"ṅa","ಚ":"ca","ಛ":"cha","ಜ":"ja","ಝ":"jha","ಞ":"ña","ಟ":"ṭa","ಠ":"ṭha","ಡ":"ḍa","ಢ":"ḍha","ಣ":"ṇa","ತ":"ta","ಥ":"tha","ದ":"da","ಧ":"dha","ನ":"na","ಪ":"pa","ಫ":"pha","ಬ":"ba","ಭ":"bha","ಮ":"ma","ಯ":"ya","ರ":"ra","ಱ":"ṟa","ಲ":"la","ವ":"va","ಶ":"śa","ಷ":"ṣa","ಸ":"sa","ಹ":"ha","ಳ":"ḷa","ೞ":"ḻa","a":"a","b":"b","c":"c","d":"d","e":"e","f":"f","g":"g","h":"h","i":"i","j":"j","k":"k","l":"l","m":"m","n":"n","o":"o","p":"p","q":"q","r":"r","s":"s","t":"t","u":"u","v":"v","w":"w","x":"x","y":"y","z":"z","A":"A","B":"B","C":"C","D":"D","E":"E","F":"F","G":"G","H":"H","I":"I","J":"J","K":"K","L":"L","M":"M","N":"N","O":"O","P":"P","Q":"Q","R":"R","S":"S","T":"T","U":"U","V":"V","W":"W","X":"X","Y":"Y","Z":"Z"};
+    const kannadaToLatin = {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9","೦":"0","೧":"1","೨":"2","೩":"3","೪":"4","೫":"5","೬":"6","೭":"7","೮":"8","೯":"9"," ":" ",".":".",",":",",";":";","?":"?","!":"!","\"":"\"","'":"'","(":"(",")":")",":":":","+":"+","=":"=","/":"/","-":"-","<":"<",">":">","*":"*","|":"|","\\":"\\","₹":"₹","{":"{","}":"}","[":"[","]":"]","_":"_","%":"%","@":"@","ˆ":"ˆ","`":"`","´":"´","˜":"˜","·":"·","˙":"˙","¯":"¯","¨":"¨","˚":"˚","˝":"˝","ˇ":"ˇ","¸":"¸","˛":"˛","˘":"˘","’":"’","ಅ":"a","ಆ":"ā","ಇ":"i","ಈ":"ī","ಉ":"u","ಊ":"ū","ಋ":"r̥","ೠ":"r̥̄","ಌ":"l̥","ೡ":"l̥̄","ಎ":"e","ಏ":"ē","ಐ":"ai","ಒ":"o","ಓ":"ō","ಔ":"au","ಅಂ":"aṃ","ಅಃ":"aḥ","ೱ":" ","ೲ":" ","ಀ":" ","\\u0CDD":"nh","಄":" ","ಕ":"ka","ಖ":"kha","ಗ":"ga","ಘ":"gha","ಙ":"ṅa","ಚ":"ca","ಛ":"cha","ಜ":"ja","ಝ":"jha","ಞ":"ña","ಟ":"ṭa","ಠ":"ṭha","ಡ":"ḍa","ಢ":"ḍha","ಣ":"ṇa","ತ":"ta","ಥ":"tha","ದ":"da","ಧ":"dha","ನ":"na","ಪ":"pa","ಫ":"pha","ಬ":"ba","ಭ":"bha","ಮ":"ma","ಯ":"ya","ರ":"ra","ಱ":"ṟa","ಲ":"la","ವ":"va","ಶ":"śa","ಷ":"ṣa","ಸ":"sa","ಹ":"ha","ಳ":"ḷa","ೞ":"ḻa","a":"a","b":"b","c":"c","d":"d","e":"e","f":"f","g":"g","h":"h","i":"i","j":"j","k":"k","l":"l","m":"m","n":"n","o":"o","p":"p","q":"q","r":"r","s":"s","t":"t","u":"u","v":"v","w":"w","x":"x","y":"y","z":"z","A":"A","B":"B","C":"C","D":"D","E":"E","F":"F","G":"G","H":"H","I":"I","J":"J","K":"K","L":"L","M":"M","N":"N","O":"O","P":"P","Q":"Q","R":"R","S":"S","T":"T","U":"U","V":"V","W":"W","X":"X","Y":"Y","Z":"Z"};
 
     const swaras = ['ಅ', 'ಆ', 'ಇ', 'ಈ', 'ಊ', 'ಉ', 'ಋ', 'ೠ', 'ಌ', 'ೡ', 'ಎ', 'ಏ', 'ಐ', 'ಒ', 'ಓ', 'ಔ'];
 
     const diacritics = {"್":" ","ಾ":"ā","ಿ":"i","ೀ":"ī","ು":"u","ೂ":"ū","ೃ":"r̥","ೄ":"r̥̄","ೢ":"l̥","ೣ":"l̥̄","ೆ":"e","ೇ":"ē","ೈ":"ai","ೊ":"o","ೋ":"ō","ೌ":"au","ಂ":"ṃ","ಃ":"ḥ","಼":"ʾ","ಁ":"ṃ","\\u0CF3":"m̐","ಽ":"'"}; 
-    // u0CF3 : m̐ - https://www.unicode.org/L2/L2021/21114-kannada-sign-anusvara.pdf
 
     // Anusvara - determine rule ṇ & ṃ : English Transliteration of Kannada Words with Anusvara and Visarga : https://link.springer.com/chapter/10.1007/978-981-15-3514-7_28
     const followingAnusvaraLetter = ['ಪ','ಫ','ಬ','ಭ','ಯ','ರ','ವ','ಶ','ಷ','ಸ','ಹ','ಕ್',' '];
