@@ -55,9 +55,9 @@ function transliterate() {
     document.getElementById("textarea1").innerHTML = "";
     document.getElementById("textarea2").innerHTML = "";
   }
+  // Standard Unicode Proposal : https://unicode.org/L2/L2003/03068-kannada.pdf
+  // Unicode version 10 : http://www.unicode.org/versions/Unicode10.0.0/ch12.pdf (Page 497 - 500)
   if (localStorage.getItem("direction") == null || localStorage.getItem("direction") == undefined || localStorage.getItem("direction") == "latin2kannada") {
-    // Standard Unicode Proposal : https://unicode.org/L2/L2003/03068-kannada.pdf
-    // Unicode version 10 : http://www.unicode.org/versions/Unicode10.0.0/ch12.pdf (Page 497 - 500)
     const latinToKannada = {"0":"೦","1":"೧","2":"೨","3":"೩","4":"೪","5":"೫","6":"೬","7":"೭","8":"೮","9":"೯"," ":" ",".":".",",":",",";":";","?":"?","!":"!","\"":"\"","'":"'","(":"(",")":")",":":":","+":"+","=":"=","/":"/","-":"-","<":"<",">":">","*":"*","|":"|","\\":"\\","₹":"₹","{":"{","}":"}","[":"[","]":"]","_":"_","%":"%","a":"ಅ","ā":"ಆ","i":"ಇ","ī":"ಈ","u":"ಉ","ū":"ಊ","r̥":"ಋ","r̥̄":"ೠ","l̥":"ಌ","l̥̄":"ೡ","e":"ಎ","ē":"ಏ","ai":"ಐ","o":"ಒ","ō":"ಓ","au":"ಔ","aṃ":"ಅಂ","aḥ":"ಅಃ","":"ೱ","":"ೲ","":"ಀ","nh":"\\u0CDD","":"಄","ka":"ಕ","kha":"ಖ","ga":"ಗ","gha":"ಘ","ṅa":"ಙ","ca":"ಚ","cha":"ಛ","ja":"ಜ","jha":"ಝ","ña":"ಞ","ṭa":"ಟ","ṭha":"ಠ","ḍa":"ಡ","ḍha":"ಢ","ṇa":"ಣ","ta":"ತ","tha":"ಥ","da":"ದ","dha":"ಧ","na":"ನ","pa":"ಪ","pha":"ಫ","ba":"ಬ","bha":"ಭ","ma":"ಮ","ya":"ಯ","ra":"ರ","ṟa":"ಱ","la":"ಲ","va":"ವ","śa":"ಶ","ṣa":"ಷ","sa":"ಸ","ha":"ಹ","ḷa":"ಳ","ḻa":"ೞ"};
 
     const diacritics = {"ā":"ಾ","i":"ಿ","ī":"ೀ","u":"ು","ū":"ೂ","r̥":"ೃ","r̥̄":"ೄ","l̥":"ೢ","l̥̄":"ೣ","e":"ೆ","ē":"ೇ","ai":"ೈ","o":"ೊ","ō":"ೋ","au":"ೌ","ṇ":"ಂ","ḥ":"ಃ","ʾ":"಼","":"ಁ","ṃ":"\\u0CF3","'":"ಽ"}; // Anusvara, Avagraha, Nuqta approprimations
@@ -189,4 +189,11 @@ document.getElementById("textarea1").focus();
 if (localStorage.getItem("direction") == null || localStorage.getItem("direction") == undefined || localStorage.getItem("direction") == "kannada2latin") {
   localStorage.setItem("direction", "latin2kannada");
   localStorage.setItem("encoding", "Latin");
+}
+
+if (screen.width >= 300 && screen.width <= 500) {
+  document.getElementById("Kannada").classList.remove("kannadaTabText");
+  document.getElementById("Kannada").classList.add("kannadaTabSmallScreen");
+  document.getElementById("Latin").classList.remove("tabcontent");
+  document.getElementById("Latin").classList.add("tabcontentSmallScreen");
 }
