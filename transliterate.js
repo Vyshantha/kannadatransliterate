@@ -97,6 +97,7 @@ function transliterate() {
     // Anusvara - determine rule ṇ & ṃ : English Transliteration of Kannada Words with Anusvara and Visarga : https://link.springer.com/chapter/10.1007/978-981-15-3514-7_28
     const followingAnusvaraLetter = ['ಪ','ಫ','ಬ','ಭ','ಯ','ರ','ವ','ಶ','ಷ','ಸ','ಹ','ಕ್',' '];
 
+    const nonPronunced = ["್","ಾ","ಿ","ೀ","ು","ೂ","ೃ","ೄ","ೢ","ೣ","ೆ","ೇ","ೈ","ೊ","ೋ","ೌ","಼","ಁ","ಽ"];
     /*  
       Transliteration for Sanskrit (ISO 15919 : IAST), Marathi, older Kannada, old Tamil, modern Kannada and modern Tamil, Havigannada, Konkani, Tulu, Awadhi
       Function of non-punctuation approximated - ೱ ೲ ಀ ಄
@@ -105,7 +106,7 @@ function transliterate() {
     let resultLa = "";
     let textKn = document.getElementById("textarea2").value;
     for (let u = 0; u < textKn.length; u++ ) {
-      /* if (textKn[u] && diacritics[textKn[u]] && textKn[u-1] && swaras.indexOf(textKn[u-1]) > -1) {
+      if (textKn[u] && diacritics[textKn[u]] && nonPronunced.indexOf(textKn[u]) > -1 && textKn[u-1] && swaras.indexOf(textKn[u-1]) > -1) {
         // Half swara are not pronounced : http://nannabaraha.blogspot.com/2017/02/blog-post_27.html
         let ulpaswara1 = ['ೠ', 'ೡ'];
         let ulpaswara2 = ['ಋ', 'ಌ', 'ಐ', 'ಔ'];
@@ -116,7 +117,7 @@ function transliterate() {
         else 
           resultLa = resultLa.slice(0, -1);
         continue;
-      } */
+      }
       if (textKn[u] != " " && diacritics[textKn[u]] && textKn[u-1] != "ಅ") {
         if (textKn[u] != " " && diacritics[textKn[u-1]] && diacritics[textKn[u]]) {
           resultLa = resultLa + diacritics[textKn[u]];
@@ -140,7 +141,7 @@ function transliterate() {
             }
           }
         }
-      } else if (textKn[u-1] == "ಅ" && diacritics[textKn[u]] && textKn[u] != "್") {
+      } else if (textKn[u-1] == "ಅ" && diacritics[textKn[u]] && nonPronunced.indexOf(textKn[u]) == -1) {
           resultLa = resultLa.slice(0, -1) +  kannadaToLatin[textKn[u-1] + textKn[u]];
       } else if (textKn[u].indexOf("\n") > -1) {
         resultLa = resultLa + "\n";
