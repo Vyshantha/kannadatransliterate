@@ -2,7 +2,7 @@ varṇamāle -
 svara akṣara : a ā i ī u ū r̥ r̥̄ l̥ l̥̄ e ē ai o ō au aṃ aḥ
            ā  i  ī  u  ū  r̥  r̥̄  l̥  l̥̄   e  ē  ai  o  ō  au   ṃ   ḥ 
 
-vyaṇjana akṣara: 
+vyañjana akṣara: 
 ka kā ki kī ku kū kr̥ kr̥̄ ke kē kai ko kō kau kaṃ kaḥ k
 kha khā khi khī khu khū khr̥ khr̥̄ khe khē khai kho khō khau khaṃ khaḥ kh
 ga gā gi gī gu gū gr̥ gr̥̄ ge gē gai go gō gau gaṃ gaḥ g
@@ -49,18 +49,18 @@ ottakṣara :
     yya rra lla vva śśa ṣṣa ssa hha ḷḷa
     jña kṣa śra 
 
-anusvara śabdagaḷu : oṃbatu eṇṭu oṇdu eṃbatu eṇṭunūru 
+anusvara śabdagaḷu : aṃ ombatu eṇṭu ondu embatu eṇṭunūru samyukta akṣāmśa pampa kumbha bandaru maṅga pandaḷa taṇṭe intha daṅga ḍaṅgūra jhaṇḍa ceṇḍu chandassu ghaṇṭe kanda aṅgi oṇṭe enta uṅgura āntarika ōṃ yaṃ brāmhana
 
-viśēṣa prakaraṇagaḷu : za fa  ka  pa  ki
+viśēṣa prakaraṇagaḷu : za fa ennam̐ dēvā̃ fanta zinda 
 
 kathe : 
-pratiyobbanigū bhāvaneya aṇtaḥkaraṇada hāgū matada svātaṇtryagaḷige bādhyateyuṇṭu. ēkāṇgiyāgiyū illave itararoḍagūḍiyū tanna matavannāgali, viśvāsavannāgali, badalāyisuva svātaṇtryavannū, bahiraṇgavāgiyū gōpyavāgiyū tanna matavannāgali viśvāsavannāgali bōdhisuva, rūḍhisuva, ārādhisuva, ācarisuva svātaṇtryavannū ī hakku oḷagoṇḍide. pratiyobbanigū abhiprāyapaḍuva, uccāraṇegaiva svātaṇtryagaḷa bādhyateyuṇṭu. madhyasthike vahisadaṇte abhiprāyagaḷanniṭṭukoḷḷuva svātaṇtravannū sarahaddugaḷa lakṣyavilladeyū yāva mukhāṇtaravāgiyū vartamānavannū bhāvanegaḷannū anvēṣaṇagaiva, svīkarisuva, tiḷayapaḍisuva svātaṇtryavannū ī bādhyate oḷagoṇḍide. 
+pratiyobbanigū bhāvaneya antaḥkaraṇada hāgū matada svātantryagaḷige bādhyateyuṇṭu. ēkāṅgiyāgiyū illave itararoḍagūḍiyū tanna matavannāgali, viśvāsavannāgali, badalāyisuva svātantryavannū, bahiraṅgavāgiyū gōpyavāgiyū tanna matavannāgali viśvāsavannāgali bōdhisuva, rūḍhisuva, ārādhisuva, ācarisuva svātantryavannū ī hakku oḷagoṇḍide. pratiyobbanigū abhiprāyapaḍuva, uccāraṇegaiva svātantryagaḷa bādhyateyuṇṭu. madhyasthike vahisadante abhiprāyagaḷanniṭṭukoḷḷuva svātantravannū sarahaddugaḷa lakṣyavilladeyū yāva mukhāntaravāgiyū vartamānavannū bhāvanegaḷannū anvēṣaṇagaiva, svīkarisuva, tiḷayapaḍisuva svātantryavannū ī bādhyate oḷagoṇḍide. 
 
-samājada sadasyanādudariṇda sāmājika bhadratege pratiyobbanigū hakkuṇṭu. mattu tanna gauravakkū tanna vyaktitvada naisargikābhivr̥ddigū atyagatyavāda ārthika, sāmājika, hāgū sāṃskr̥tika hakkugaḷannu rāṣṭrīya prayatnada mūlakavū, aṇtararāṣṭrīya sahakārada mūlakavū mattu pratirāṣṭrada vyavasdhe mattu ādāyagaḷiganuguṇavāgiyū ānubhavisuva bādhyate pratiyobbanigū uṇṭu. virāma viśrāṇtigaḷigū ucitaparimitiyuḷḷa audyōgika samayakkū vētana samētavāda kālakālada rajegaḷigū pratiyobbanigū hakkuṇṭu. ī prakaṭaneyalli sūcitavāda hakkugaḷannu svātaṇtryagaḷannū saṃpūrṇavāgi anubhavisa bahudādaṇtha sāmājikavū aṇtararāṣṭrīyavū āda vyavasthege pratiyobbanigū bādhyateyuṇṭu. yāva prāṇtakkāgiyō saṇghakkāgiyō vyaktigāgiyō eṃbudāgiyū, yāvudō udyamadalli toḍagiraleṃbudāgiyū, athavā idaralliruva yāvudādarū hakkugaḷannū svātaṇtryagaḷannū nāśagoḷisalu uddēśisiruva yāvudō kāryavannu māḍaleṃbudāgiyū ī prakaṭaneyalliruva yāva viṣayavannū vyākhyānisabāradu. ellā mānavarū svataṇtrarāgiyē janisiddāre. hāgū ghanate mattu hakkugaḷalli samānarāgiddāre. vivēka mattu aṇtaḥkaraṇagaḷannu paḍedavarāddariṇda avaru paraspara sahōdara bhāvadiṇda vartisabēku. 
+samājada sadasyanādudarinda sāmājika bhadratege pratiyobbanigū hakkuṇṭu. mattu tanna gauravakkū tanna vyaktitvada naisargikābhivr̥ddigū atyagatyavāda ārthika, sāmājika, hāgū sāmskr̥tika hakkugaḷannu rāṣṭrīya prayatnada mūlakavū, antararāṣṭrīya sahakārada mūlakavū mattu pratirāṣṭrada vyavasdhe mattu ādāyagaḷiganuguṇavāgiyū ānubhavisuva bādhyate pratiyobbanigū uṇṭu. virāma viśrāntigaḷigū ucitaparimitiyuḷḷa audyōgika samayakkū vētana samētavāda kālakālada rajegaḷigū pratiyobbanigū hakkuṇṭu. ī prakaṭaneyalli sūcitavāda hakkugaḷannu svātantryagaḷannū sampūrṇavāgi anubhavisa bahudādantha sāmājikavū antararāṣṭrīyavū āda vyavasthege pratiyobbanigū bādhyateyuṇṭu. yāva prāntakkāgiyō saṅghakkāgiyō vyaktigāgiyō embudāgiyū, yāvudō udyamadalli toḍagiralembudāgiyū, athavā idaralliruva yāvudādarū hakkugaḷannū svātantryagaḷannū nāśagoḷisalu uddēśisiruva yāvudō kāryavannu māḍalembudāgiyū ī prakaṭaneyalliruva yāva viṣayavannū vyākhyānisabāradu. ellā mānavarū svatantrarāgiyē janisiddāre. hāgū ghanate mattu hakkugaḷalli samānarāgiddāre. vivēka mattu antaḥkaraṇagaḷannu paḍedavarāddarinda avaru paraspara sahōdara bhāvadinda vartisabēku. 
 
-saṃskr̥ta :
-śrīmūlasaṇgha dēśigaṇa pustakagaccha koṇḍakuṇdānvayake siddhānta ca kravartti nayakīrtimunīśvarō bhāti || 
-taccheṣyōttamabāḷecaṇdramunipa śrīsādanadmapriyā sarvvōrvvīnutacaṇdramauḷisacivasyārddāṇgalakṣmīri yaṃ ācāṃbā rajatādri hāraharahāsōdyadyaśōmaṇjarīpuṇjībhūta jagattrayā jinagr̥haṃ bhaktyā mudā kārayat || 
+samskr̥ta :
+śrīmūlasaṅgha dēśigaṇa pustakagaccha koṇḍakundānvayake siddhānta ca kravartti nayakīrtimunīśvarō bhāti || 
+taccheṣyōttamabāḷecandramunipa śrīsādanadmapriyā sarvvōrvvīnutacandramauḷisacivasyārddāṅgalakṣmīri yaṃ ācāmbā rajatādri hāraharahāsōdyadyaśōmañjarīpuñjībhūta jagattrayā jinagr̥haṃ bhaktyā mudā kārayat || 
 
 kavirājamārga : 
 padaṟidu nuḍayaluṃ nuḍiduda naṟiyalumārparā nāḍavargaḷ cadurar nijadiṃ kuritōdadeyuṃ kāvyaprayōga pariṇatamategaḷ
