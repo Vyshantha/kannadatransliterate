@@ -69,65 +69,115 @@ function transliterate() {
   */
 
   if (localStorage.getItem("direction") == null || localStorage.getItem("direction") == undefined || localStorage.getItem("direction") == "latin2kannada") {
-    const latinToKannada = {"0":"೦","1":"೧","2":"೨","3":"೩","4":"೪","5":"೫","6":"೬","7":"೭","8":"೮","9":"೯"," ":"  ",".":".",",":",",";":";","?":"?","!":"!","\"":"\"","'":"'","(":"(",")":")",":":":","+":"+","=":"=","/":"/","-":"-","<":"<",">":">","*":"*","|":"|","\\":"\\","₹":"₹","{":"{","}":"}","[":"[","]":"]","_":"_","%":"%","@":"@","ˆ":"ˆ","`":"`","´":"´","·":"·","˙":"˙","¯":"¯","¨":"¨","˚":"˚","˝":"˝","ˇ":"ˇ","¸":"¸","˛":"˛","˘":"˘","’":"’","a":"ಅ","ā":"ಆ","i":"ಇ","ī":"ಈ","u":"ಉ","ū":"ಊ","r̥":"ಋ","r̥̄":"ೠ","l̥":"ಌ","l̥̄":"ೡ","e":"ಎ","ē":"ಏ","ai":"ಐ","o":"ಒ","ō":"ಓ","au":"ಔ","aṃ":"ಅಂ","aḥ":"ಅಃ","":"ೱ","nh":"\\u0CDD","ka":"ಕ","kha":"ಖ","ga":"ಗ","gha":"ಘ","ṅa":"ಙ","ca":"ಚ","cha":"ಛ","ja":"ಜ","jha":"ಝ","ña":"ಞ","ṭa":"ಟ","ṭha":"ಠ","ḍa":"ಡ","ḍha":"ಢ","ṇa":"ಣ","ta":"ತ","tha":"ಥ","da":"ದ","dha":"ಧ","na":"ನ","pa":"ಪ","pha":"ಫ","ba":"ಬ","bha":"ಭ","ma":"ಮ","ya":"ಯ","ra":"ರ","ṟa":"ಱ","la":"ಲ","va":"ವ","śa":"ಶ","ṣa":"ಷ","sa":"ಸ","ha":"ಹ","ḷa":"ಳ","ḻa":"ೞ","fa":"ಫ಼","za":"ಜ಼","A":"ಅ","Ā":"ಆ","I":"ಇ","Ī":"ಈ","U":"ಉ","Ū":"ಊ","R̥":"ಋ","Ṝ":"ೠ","L̥":"ಌ","L̥̄":"ೡ","E":"ಎ","Ē":"ಏ","Ai":"ಐ","O":"ಒ","Ō":"ಓ","Au":"ಔ","Aṃ":"ಅಂ","Aḥ":"ಅಃ","Nh":"\\u0CDD","Ka":"ಕ","Kha":"ಖ","Ga":"ಗ","Gha":"ಘ","Ṅa":"ಙ","Ca":"ಚ","Cha":"ಛ","Ja":"ಜ","Jha":"ಝ","Ña":"ಞ","Ṭa":"ಟ","Ṭha":"ಠ","Ḍa":"ಡ","Ḍha":"ಢ","Ṇa":"ಣ","Ta":"ತ","Tha":"ಥ","Da":"ದ","Dha":"ಧ","Na":"ನ","Pa":"ಪ","Pha":"ಫ","Ba":"ಬ","Bha":"ಭ","Ma":"ಮ","Ya":"ಯ","Ra":"ರ","Ṟa":"ಱ","La":"ಲ","Va":"ವ","Śa":"ಶ","Ṣa":"ಷ","Sa":"ಸ","Ha":"ಹ","Ḷa":"ಳ","Ḻa":"ೞ","Fa":"ಫ಼","Za":"ಜ಼"};
+    const latinToKannada = {"0":"೦","1":"೧","2":"೨","3":"೩","4":"೪","5":"೫","6":"೬","7":"೭","8":"೮","9":"೯"," ":"  ",".":".",",":",",";":";","?":"?","!":"!","\"":"\"","'":"'","(":"(",")":")",":":":","+":"+","=":"=","/":"/","-":"-","<":"<",">":">","*":"*","|":"|","\\":"\\","₹":"₹","{":"{","}":"}","[":"[","]":"]","_":"_","%":"%","@":"@","ˆ":"ˆ","`":"`","´":"´","·":"·","˙":"˙","¯":"¯","¨":"¨","˚":"˚","˝":"˝","ˇ":"ˇ","¸":"¸","˛":"˛","˘":"˘","’":"’","a":"ಅ","ā":"ಆ","i":"ಇ","ī":"ಈ","u":"ಉ","ū":"ಊ","r̥":"ಋ","r̥̄":"ೠ","l̥":"ಌ","l̥̄":"ೡ","e":"ಎ","ē":"ಏ","ai":"ಐ","o":"ಒ","ō":"ಓ","au":"ಔ","aṃ":"ಅಂ","aḥ":"ಅಃ","nh":"\\u0CDD","ka":"ಕ","kha":"ಖ","ga":"ಗ","gha":"ಘ","ṅa":"ಙ","ca":"ಚ","cha":"ಛ","ja":"ಜ","jha":"ಝ","ña":"ಞ","ṭa":"ಟ","ṭha":"ಠ","ḍa":"ಡ","ḍha":"ಢ","ṇa":"ಣ","ta":"ತ","tha":"ಥ","da":"ದ","dha":"ಧ","na":"ನ","pa":"ಪ","pha":"ಫ","ba":"ಬ","bha":"ಭ","ma":"ಮ","ya":"ಯ","ra":"ರ","ṟa":"ಱ","la":"ಲ","va":"ವ","śa":"ಶ","ṣa":"ಷ","sa":"ಸ","ha":"ಹ","ḷa":"ಳ","ḻa":"ೞ","fa":"ಫ಼","za":"ಜ಼","A":"ಅ","Ā":"ಆ","I":"ಇ","Ī":"ಈ","U":"ಉ","Ū":"ಊ","R̥":"ಋ","Ṝ":"ೠ","L̥":"ಌ","L̥̄":"ೡ","E":"ಎ","Ē":"ಏ","Ai":"ಐ","O":"ಒ","Ō":"ಓ","Au":"ಔ","Aṃ":"ಅಂ","Aḥ":"ಅಃ","Nh":"\\u0CDD","Ka":"ಕ","Kha":"ಖ","Ga":"ಗ","Gha":"ಘ","Ṅa":"ಙ","Ca":"ಚ","Cha":"ಛ","Ja":"ಜ","Jha":"ಝ","Ña":"ಞ","Ṭa":"ಟ","Ṭha":"ಠ","Ḍa":"ಡ","Ḍha":"ಢ","Ṇa":"ಣ","Ta":"ತ","Tha":"ಥ","Da":"ದ","Dha":"ಧ","Na":"ನ","Pa":"ಪ","Pha":"ಫ","Ba":"ಬ","Bha":"ಭ","Ma":"ಮ","Ya":"ಯ","Ra":"ರ","Ṟa":"ಱ","La":"ಲ","Va":"ವ","Śa":"ಶ","Ṣa":"ಷ","Sa":"ಸ","Ha":"ಹ","Ḷa":"ಳ","Ḻa":"ೞ","Fa":"ಫ಼","Za":"ಜ಼"};
 
-    const diacritics = {"ā":"ಾ","i":"ಿ","ī":"ೀ","u":"ು","ū":"ೂ","r̥":"ೃ","r̥̄":"ೄ","l̥":"ೢ","l̥̄":"ೣ","e":"ೆ","ē":"ೇ","ai":"ೈ","o":"ೊ","ō":"ೋ","au":"ೌ","ṇ":"ಂ","ṃ":"ಂ","ḥ":"ಃ","ʾ":"಼","m̐":"ಀ","Ā":"ಾ","I":"ಿ","Ī":"ೀ","U":"ು","Ū":"ೂ","R̥":"ೃ","Ṝ":"ೄ","L̥":"ೢ","L̥̄":"ೣ","E":"ೆ","Ē":"ೇ","Ai":"ೈ","O":"ೊ","Ō":"ೋ","Au":"ೌ","Aṇ":"ಂ","Aṃ":"ಂ","Aḥ":"ಃ","M̐":"ಀ","'":"ಽ","˜":"ಁ","ã":"ಁ","ā̃":"ಾಁ","ĩ":"ಿಁ","ī̃":"ೀಁ","ũ":"ುಁ","ū̃":"ೂಁ","r̥̃":"ೃಁ","ṝ̃":"ೄಁ","ẽ":"ೆಁ","ē̃":"ೇಁ","õ":"ೊಁ","ō̃":"ೋಁ"};
+    const diacritics = {"a":"","ā":"ಾ","i":"ಿ","ī":"ೀ","u":"ು","ū":"ೂ","r̥":"ೃ","r̥̄":"ೄ","l̥":"ೢ","l̥̄":"ೣ","e":"ೆ","ē":"ೇ","ai":"ೈ","o":"ೊ","ō":"ೋ","au":"ೌ","aṇ":"ಂ","aṃ":"ಂ","aḥ":"ಃ","ʾ":"಼","m̐":"ಀ","Ā":"ಾ","I":"ಿ","Ī":"ೀ","U":"ು","Ū":"ೂ","R̥":"ೃ","Ṝ":"ೄ","L̥":"ೢ","L̥̄":"ೣ","E":"ೆ","Ē":"ೇ","Ai":"ೈ","O":"ೊ","Ō":"ೋ","Au":"ೌ","Aṇ":"ಂ","Aṃ":"ಂ","Aḥ":"ಃ","M̐":"ಀ","'":"ಽ","˜":"ಁ","ã":"ಁ","ā̃":"ಾಁ","ĩ":"ಿಁ","ī̃":"ೀಁ","ũ":"ುಁ","ū̃":"ೂಁ","r̥̃":"ೃಁ","ṝ̃":"ೄಁ","ẽ":"ೆಁ","ē̃":"ೇಁ","õ":"ೊಁ","ō̃":"ೋಁ"};
     
     const anuswaraEndings = ['ṃ','ṇ','ṅ','ñ','n','m'];
     const letterAfterAnuswara = ['k','g','c','j','ṭ','ḍ','t','d','p','b','y','r','v','ś','ṣ','s','h']; 
     const longVyanjana = ['k','g','c','j','ṭ','ḍ','t','d'];
 
     const anunasika = {"ã":"a","ā̃":"ā","ĩ":"i","ī̃":"ī","ũ":"u","ū̃":"ū","r̥̃":"r̥","ṝ̃":"r̥̄","ẽ":"e","ē̃":"ē","õ":"o","ō̃":"ō"};
+    var includedAnuswara = false;
 
     let resultKn = "";
     let textLa = document.getElementById("textarea1").value.toLowerCase();
-    for (let u = 0; u < textLa.length; u++ ) {
-      if (textLa[u] != " " && textLa[u-1] != " " && (textLa[u-1] + textLa[u]).toLowerCase() == "m̐") {
-        resultKn = resultKn.slice(0,-2) + diacritics[textLa[u-1] + textLa[u]];
-      } else if (textLa[u] != " " && textLa[u-1] != " " && anunasika[textLa[u-1] + textLa[u]]) {
-        resultKn = resultKn.slice(0,-1) + diacritics[textLa[u-1] + textLa[u]];
-      } else if (textLa[u] != " " && textLa[u-1] && textLa[u-1] != " " && latinToKannada[textLa[u-1] + textLa[u] + "a"]) {
-        resultKn = resultKn.slice(0, -2) + latinToKannada[textLa[u-1] + textLa[u] + "a"] + "್";
-      } else if (latinToKannada[textLa[u-1]] && anuswaraEndings.indexOf(textLa[u]) > -1 && letterAfterAnuswara.indexOf(textLa[u+1]) > -1) {
-        if (latinToKannada[textLa[u-2] + textLa[u-1]] && latinToKannada[textLa[u-3] + textLa[u-1]] && textLa[u-2] == "h" && longVyanjana.indexOf(textLa[u-3]) == -1) {
-          resultKn = resultKn + latinToKannada[textLa[u-3] + textLa[u-1]] + "ಂ";
-        } else if (latinToKannada[textLa[u-2] + textLa[u-1]] && !latinToKannada[textLa[u-3] + textLa[u-1]] && textLa[u-2] != "f") {
-          resultKn = resultKn.slice(0,-1) + latinToKannada[textLa[u-2] + textLa[u-1]] + "ಂ";
-        } else if (anuswaraEndings.indexOf(textLa[u]) > -1) {
-          resultKn = resultKn + "ಂ";
-        }
-      } else if (textLa[u] != " " && latinToKannada[textLa[u] + "a"] && !diacritics[textLa[u]]) {
-        resultKn = resultKn + latinToKannada[textLa[u] + "a"] + "್";
-      } else if (textLa[u] != " " && textLa[u-1] && textLa[u-1] != " " && diacritics[textLa[u]] && !latinToKannada[textLa[u-1] + textLa[u]] && textLa[u-1].indexOf("\n") == -1) {
-        if (textLa[u-1] && latinToKannada[textLa[u-1]]) {
-          resultKn = resultKn + diacritics[textLa[u]];
+    for (let u = 0; u < textLa.length; u++ ) {    
+      if (diacritics[textLa[u-2] + textLa[u-1] + textLa[u]]) { // Vowel 3-character
+        console.log("3-vows")
+        if (diacritics[textLa[u-2] + textLa[u-1] + textLa[u]] && latinToKannada[textLa[u-2] + textLa[u-1] + textLa[u]] && (textLa[u-3] == "" || !textLa[u-3] || textLa[u-3] == " " || textLa[u-3].indexOf("\n") > -1))  { // Standalone 3-character Vowel
+          resultKn = resultKn.slice(0, -1) + latinToKannada[textLa[u-2] + textLa[u-1] + textLa[u]];
         } else {
+          resultKn = resultKn.slice(0, -1) + diacritics[textLa[u-2] + textLa[u-1] + textLa[u]];
+        }
+      } else if (!diacritics[textLa[u-2]] && diacritics[textLa[u-1] + textLa[u]]) { // Vowel 2-character
+        console.log("2-vows")
+        if (diacritics[textLa[u-1] + textLa[u]] && latinToKannada[textLa[u-1] + textLa[u]] && (textLa[u-2] == "" || !textLa[u-2] || textLa[u-2] == " " || textLa[u-2].indexOf("\n") > -1)) {  // Standalone 2-character Vowel
+          resultKn = resultKn.slice(0, -1) + latinToKannada[textLa[u-1] + textLa[u]];
+        } else {
+          resultKn = resultKn.slice(0, -1) + diacritics[textLa[u-1] + textLa[u]];
+        }
+      } else if (!diacritics[textLa[u-2]] && !diacritics[textLa[u-1]] && diacritics[textLa[u]]) { // Vowel 1-character
+        console.log("1-vows")
+        if (textLa[u] == "a" && textLa[u-1] == " ") {
+          console.log("full cons")
+          resultKn = resultKn.slice(0, -1) + latinToKannada[textLa[u]];
+        } else if (diacritics[textLa[u]] && (textLa[u-1] == "" || !textLa[u-1] || textLa[u-1] == " " || textLa[u-1].indexOf("\n") > -1)) { // Standalone 1-character Vowel
+          console.log("swara")
+          if (anuswaraEndings.indexOf(textLa[u+1]) > -1 && !diacritics[textLa[u+2]]) {
+            console.log("anuswara")
+            resultKn = resultKn + latinToKannada[textLa[u]] + "ಂ";
+            includedAnuswara = true;
+          } else {
+            resultKn = resultKn.slice(0, -1) + latinToKannada[textLa[u]];
+          }
+        } else {
+          console.log("diacritic")
           resultKn = resultKn.slice(0, -1) + diacritics[textLa[u]];
         }
-      } else if (textLa[u] != " " && textLa[u-1] && textLa[u-1] != " " && textLa[u-2] && textLa[u-2] != " " && latinToKannada[textLa[u-2] + textLa[u-1] + textLa[u]]) {
-        if (textLa[u-1] == "h") // Aspirated Vyanjana
-          resultKn = resultKn.slice(0, -2) + latinToKannada[textLa[u-2] + textLa[u-1] + textLa[u]];
-        else
-          resultKn = resultKn.slice(0, -4) + latinToKannada[textLa[u-2] + textLa[u-1] + textLa[u]];
-      } else if (textLa[u] != " " && textLa[u-1] && textLa[u-1] != " " && latinToKannada[textLa[u-1] + textLa[u]]) {
-        if (textLa[u-1] && latinToKannada[textLa[u-1] + textLa[u]]) {
-          if (textLa[u-1] == "z" || textLa[u-1] == "f") {// Nukta special case
-            resultKn = resultKn.slice(0, -3) + latinToKannada[textLa[u-1] + textLa[u]];
-          } else if (!latinToKannada[textLa[u-2] + textLa[u-1]]) {
-            resultKn = resultKn.slice(0, -2) + latinToKannada[textLa[u-1] + textLa[u]];
-          } else {
-            resultKn = resultKn.slice(0, -1) + latinToKannada[textLa[u-2] + textLa[u-1]] + diacritics[textLa[u]];
-          }
-        } else if (textLa[u-2] && textLa[u-1] && latinToKannada[textLa[u-2] + textLa[u-1] + textLa[u]]) {
-          resultKn = resultKn.slice(0, -3) + latinToKannada[textLa[u-2] + textLa[u-1] + textLa[u]];
+      } else if (latinToKannada[textLa[u-1] + textLa[u] + "a"] || (latinToKannada[textLa[u-2] + textLa[u-1] + "a"] && textLa[u] == "a")) { // Consonant 2-character
+        console.log("2-cons")
+        if (diacritics[textLa[u] + textLa[u+1] + textLa[u+2]]) { // Consonant-Vowel 2-character 3-character
+          console.log("3-vows")
+          resultKn = resultKn.slice(0, -1) + diacritics[textLa[u] + textLa[u+1] + textLa[u+2]];
+        } else if (diacritics[textLa[u] + textLa[u+1]]) { // Consonant-Vowel 2-character 2-character
+          console.log("2-vows")
+          resultKn = resultKn.slice(0, -1) + diacritics[textLa[u] + textLa[u+1]];
+        } else if (latinToKannada[textLa[u-2] + textLa[u-1] + "a"] && textLa[u] == "a") { // Consonant-Vowel 2-character 1-character
+          console.log("full")
+          resultKn = resultKn.slice(0, -2) + latinToKannada[textLa[u-2] + textLa[u-1] + "a"];
+        } else if (anuswaraEndings.indexOf(textLa[u+1]) > -1 && !diacritics[textLa[u+2]] && !includedAnuswara) {
+          console.log("anuswara ", textLa[u-1], textLa[u] , textLa[u+1] , includedAnuswara)
+          resultKn = resultKn + "ಂ";
+        } else if (!includedAnuswara){
+          console.log("half")
+          resultKn = resultKn.slice(0, -2) + latinToKannada[textLa[u-1] + textLa[u] + "a"] + "್";
         }
-      } else if (textLa[u-1] == " " && !latinToKannada[textLa[u]] && diacritics[textLa[u]]) {
-        resultKn = resultKn + diacritics[textLa[u]];
-      } else if (textLa[u].indexOf("\n") > -1) {
+        includedAnuswara = false;
+      } else if (latinToKannada[textLa[u] + "a"] || (latinToKannada[textLa[u-1] + "a"] && textLa[u] == "a")) { // Consonant 1-character
+        console.log("1-cons")
+        if (diacritics[textLa[u] + textLa[u+1] + textLa[u+2]]) { // Consonant-Vowel 1-character 3-character
+          console.log("3-vows")
+          resultKn = resultKn.slice(0, -1) + diacritics[textLa[u] + textLa[u+1] + textLa[u+2]];
+        } else if (diacritics[textLa[u] + textLa[u+1]]) { // Consonant-Vowel 1-character 2-character
+          if ((textLa[u] + textLa[u+1]) == "m̐") { // Anunasika
+            console.log("anunasika")
+            resultKn = resultKn + diacritics["m̐"];
+          } else if (diacritics[textLa[u-1]] && textLa[u] == " ̃") { // vowel nasalisation
+            console.log(" ̃")
+            resultKn = resultKn.slice(0, -1) + diacritics[textLa[u] + textLa[u+1]];
+          } else { 
+            console.log("2-vows")
+            resultKn = resultKn.slice(0, -1) + diacritics[textLa[u] + textLa[u+1]];
+          }
+        } else if (latinToKannada[textLa[u-1] + "a"] && textLa[u] == "a") { // Consonant-Vowel 1-character 1-character
+          console.log("full")
+          if (textLa[u-1] == "f" || textLa[u-1] == "z") { // Nuqta cases
+            resultKn = resultKn.slice(0, -3) + latinToKannada[textLa[u-1] + "a"];
+          } else {
+            resultKn = resultKn.slice(0, -2) + latinToKannada[textLa[u-1] + "a"];
+          }
+        } else if (anuswaraEndings.indexOf(textLa[u]) == -1 && anuswaraEndings.indexOf(textLa[u+1]) > -1 && !diacritics[textLa[u+2]] && !includedAnuswara) {
+          console.log("anuswara ", textLa[u-1], textLa[u] , textLa[u+1] , includedAnuswara)
+          resultKn = resultKn + "ಂ";
+        } else if (!includedAnuswara) {
+          console.log("half")
+          resultKn = resultKn + latinToKannada[textLa[u] + "a"] + "್";
+        }
+        includedAnuswara = false;
+      } else if (textLa[u].indexOf("\n") > -1) { // New Lines
+        console.log("newline")
         resultKn = resultKn + "\n";
-      } else if (latinToKannada[textLa[u]] != undefined && latinToKannada[textLa[u]] != null && textLa[u] != "") {
-        resultKn = resultKn + latinToKannada[textLa[u]];
+      } else if (latinToKannada[textLa[u]] != undefined && latinToKannada[textLa[u]] != null && textLa[u] != "") { // Default Single Character
+        console.log("default")
+        if (diacritics[textLa[u]]) {
+          resultKn = resultKn.slice(0, -1) + diacritics[textLa[u]];
+        } else {
+          resultKn = resultKn + latinToKannada[textLa[u]];
+        }
       }
+      
+      console.log("here11 " + resultKn)
     }
 
     document.getElementById("textarea2").value = resultKn;
