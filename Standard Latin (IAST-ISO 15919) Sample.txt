@@ -1,6 +1,6 @@
 varṇamāle -
-svara akṣara : a ā i ī u ū r̥ r̥̄ l̥ l̥̄ e ē ai o ō au aṃ aḥ
-           ā  i  ī  u  ū  r̥  r̥̄  l̥  l̥̄   e  ē  ai  o  ō  au   ṃ   ḥ 
+svara akṣara : a  ā  i  ī  u  ū  r̥  r̥̄  l̥  l̥̄  e  ē  ai  o  ō  au  aṃ  aḥ
+  ā  i  ī  u  ū  r̥  r̥̄  l̥  l̥̄  e  ē  ai  o  ō  au  ṃ  ḥ 
 
 vyañjana akṣara: 
 ka kā ki kī ku kū kr̥ kr̥̄ ke kē kai ko kō kau kaṃ kaḥ k
@@ -49,9 +49,11 @@ ottakṣara :
     yya rra lla vva śśa ṣṣa ssa hha ḷḷa
     jña kṣa śra 
 
-anusvara śabdagaḷu : aṃ ombatu eṇṭu ondu embatu eṇṭunūru samyukta akṣāmśa pampa kumbha bandaru maṅga pandaḷa taṇṭe intha daṅga ḍaṅgūra jhaṇḍa ceṇḍu chandassu ghaṇṭe kanda aṅgi oṇṭe enta uṅgura āntarika ōṃ yaṃ brāmhana
+anusvara śabdagaḷu : aṃ  ombatu  eṇṭu  ondu  embatu  eṇṭunūru  samyukta  akṣāmśa  pampa  kumbha  bandaru  maṅga  pandaḷa  taṇṭe  intha  daṅga  ḍaṅgūra  jhaṇḍa  ceṇḍu  chandassu  ghaṇṭe  kanda  aṅgi  oṇṭe  enta  uṅgura  āntarika  ōṃ   yaṃ  antaḥkr̥ta  antyārambhi  vastralaṅkāra  beṃlavide
 
-viśēṣa prakaraṇagaḷu : za fa ennam̐ dēvā̃ fanta zinda 
+saṅkīrṇate śabdagaḷu : noṇa goṇṇe brāmhaṇa bhāgagaḷannu vijñāna oḷagoṇḍiruttade antarsamparkita ṅakāra ṅavana ñakāra ṇakāra ṇamōkāra ṇānta ṇamō nandikallusoppu nambike namaḥśivāyaviḍi namaskaraṇaṅgey navakōṭinārāyaṇa ṟānta ṟōḍagatanaṅgey ṟoppugoḷ ḻānta ḻakāra śrī strī 
+
+viśēṣa prakaraṇagaḷu : za fa ennam̐ dēvā̃ fanta zinda
 
 kathe : 
 pratiyobbanigū bhāvaneya antaḥkaraṇada hāgū matada svātantryagaḷige bādhyateyuṇṭu. ēkāṅgiyāgiyū illave itararoḍagūḍiyū tanna matavannāgali, viśvāsavannāgali, badalāyisuva svātantryavannū, bahiraṅgavāgiyū gōpyavāgiyū tanna matavannāgali viśvāsavannāgali bōdhisuva, rūḍhisuva, ārādhisuva, ācarisuva svātantryavannū ī hakku oḷagoṇḍide. pratiyobbanigū abhiprāyapaḍuva, uccāraṇegaiva svātantryagaḷa bādhyateyuṇṭu. madhyasthike vahisadante abhiprāyagaḷanniṭṭukoḷḷuva svātantravannū sarahaddugaḷa lakṣyavilladeyū yāva mukhāntaravāgiyū vartamānavannū bhāvanegaḷannū anvēṣaṇagaiva, svīkarisuva, tiḷayapaḍisuva svātantryavannū ī bādhyate oḷagoṇḍide. 
