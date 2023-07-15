@@ -81,6 +81,10 @@ function transliterate() {
 
     let resultKn = "";
     let textLa = document.getElementById("textarea1").value.toLowerCase();
+
+    // IAST - ISO:15919 (Kannada)
+    textLa = textLa.replaceAll("ṃ","ṁ").replaceAll("ã","m̐");
+
     for (let u = 0; u < textLa.length; u++ ) {    
       if (diacritics[textLa[u-2] + textLa[u-1] + textLa[u]]) { // Vowel 3-character
         if (diacritics[textLa[u-2] + textLa[u-1] + textLa[u]] && latinToKannada[textLa[u-2] + textLa[u-1] + textLa[u]] && (textLa[u-3] == "" || !textLa[u-3] || textLa[u-3] == " " || textLa[u-3].indexOf("\n") > -1))  { // Standalone 3-character Vowel
