@@ -138,7 +138,9 @@ function transliterate() {
         } else if (latinToKannada[textLa[u-1] + "a"] && textLa[u] == "a") { // Consonant-Vowel 1-character 1-character
           if (textLa[u-1] == "f" || textLa[u-1] == "z") { // Nuqta cases
             resultKn = resultKn.slice(0, -3) + latinToKannada[textLa[u-1] + "a"];
-          } else {
+          } else if (textLa[u-2] == "a" && textLa[u-1] == "ṇ" && textLa[u] == "a") { 
+            resultKn = resultKn.slice(0, -1) + latinToKannada[textLa[u-1] + "a"];
+          } else { 
             resultKn = resultKn.slice(0, -2) + latinToKannada[textLa[u-1] + "a"];
           }
         } else if ((latinToKannada[textLa[u-2]] && diacritics[textLa[u-1]] && anuswaraEndings.indexOf(textLa[u]) > -1 && letterAfterAnuswara.indexOf(textLa[u+1]) > -1 && diacritics[textLa[u+2]]) || ((textLa[u-1] == "a" || diacritics[textLa[u-1]]) && anuswaraEndings.indexOf(textLa[u]) > -1 && letterAfterAnuswara.indexOf(textLa[u+1]) > -1) || (diacritics[textLa[u-1]] && anuswaraEndings.indexOf(textLa[u]) == -1 && anuswaraEndings.indexOf(textLa[u+1]) > -1)) {
