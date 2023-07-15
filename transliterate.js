@@ -78,111 +78,88 @@ function transliterate() {
     const longVyanjana = ['k','g','c','j','ṭ','ḍ','t','d'];
 
     const anunasika = {"ã":"a","ā̃":"ā","ĩ":"i","ī̃":"ī","ũ":"u","ū̃":"ū","r̥̃":"r̥","ṝ̃":"r̥̄","ẽ":"e","ē̃":"ē","õ":"o","ō̃":"ō"};
-    var includedAnuswara = false;
 
     let resultKn = "";
     let textLa = document.getElementById("textarea1").value.toLowerCase();
     for (let u = 0; u < textLa.length; u++ ) {    
       if (diacritics[textLa[u-2] + textLa[u-1] + textLa[u]]) { // Vowel 3-character
-        console.log("3-vows")
         if (diacritics[textLa[u-2] + textLa[u-1] + textLa[u]] && latinToKannada[textLa[u-2] + textLa[u-1] + textLa[u]] && (textLa[u-3] == "" || !textLa[u-3] || textLa[u-3] == " " || textLa[u-3].indexOf("\n") > -1))  { // Standalone 3-character Vowel
           resultKn = resultKn.slice(0, -1) + latinToKannada[textLa[u-2] + textLa[u-1] + textLa[u]];
         } else {
           resultKn = resultKn.slice(0, -1) + diacritics[textLa[u-2] + textLa[u-1] + textLa[u]];
         }
       } else if (!diacritics[textLa[u-2]] && diacritics[textLa[u-1] + textLa[u]]) { // Vowel 2-character
-        console.log("2-vows")
         if (diacritics[textLa[u-1] + textLa[u]] && latinToKannada[textLa[u-1] + textLa[u]] && (textLa[u-2] == "" || !textLa[u-2] || textLa[u-2] == " " || textLa[u-2].indexOf("\n") > -1)) {  // Standalone 2-character Vowel
-          resultKn = resultKn.slice(0, -1) + latinToKannada[textLa[u-1] + textLa[u]];
+          if (anuswaraEndings.indexOf(textLa[u+1]) > -1 && (letterAfterAnuswara.indexOf(textLa[u+2]) > -1 || textLa[u+2] == " " || textLa[u+2] == "")) {
+            resultKn = resultKn.slice(0, -1) + latinToKannada[textLa[u-1] + textLa[u]] + "ಂ"; // Anuswara - V²A  V²AC¹ V²AC²
+            u = u + 1;
+          } else {
+            resultKn = resultKn.slice(0, -1) + latinToKannada[textLa[u-1] + textLa[u]];
+          }
         } else {
           resultKn = resultKn.slice(0, -1) + diacritics[textLa[u-1] + textLa[u]];
         }
       } else if (!diacritics[textLa[u-2]] && !diacritics[textLa[u-1]] && diacritics[textLa[u]]) { // Vowel 1-character
-        console.log("1-vows")
         if (textLa[u] == "a" && textLa[u-1] == " ") {
-          console.log("full cons")
           resultKn = resultKn.slice(0, -1) + latinToKannada[textLa[u]];
         } else if (diacritics[textLa[u]] && (textLa[u-1] == "" || !textLa[u-1] || textLa[u-1] == " " || textLa[u-1].indexOf("\n") > -1)) { // Standalone 1-character Vowel
-          console.log("swara")
-          if (anuswaraEndings.indexOf(textLa[u+1]) > -1 && !diacritics[textLa[u+2]]) {
-            console.log("anuswara")
-            resultKn = resultKn + latinToKannada[textLa[u]] + "ಂ";
-            includedAnuswara = true;
+          if (anuswaraEndings.indexOf(textLa[u+1]) > -1 && (letterAfterAnuswara.indexOf(textLa[u+2]) > -1 || textLa[u+2] == " " || textLa[u+2] == "")) {
+            resultKn = resultKn + latinToKannada[textLa[u]] + "ಂ"; // Anuswara - V¹A  V¹AC¹ V¹AC²
+            u = u + 1;
           } else {
             resultKn = resultKn.slice(0, -1) + latinToKannada[textLa[u]];
           }
         } else {
-          console.log("diacritic")
           resultKn = resultKn.slice(0, -1) + diacritics[textLa[u]];
         }
       } else if (latinToKannada[textLa[u-1] + textLa[u] + "a"] || (latinToKannada[textLa[u-2] + textLa[u-1] + "a"] && textLa[u] == "a")) { // Consonant 2-character
-        console.log("2-cons")
         if (diacritics[textLa[u] + textLa[u+1] + textLa[u+2]]) { // Consonant-Vowel 2-character 3-character
-          console.log("3-vows")
           resultKn = resultKn.slice(0, -1) + diacritics[textLa[u] + textLa[u+1] + textLa[u+2]];
         } else if (diacritics[textLa[u] + textLa[u+1]]) { // Consonant-Vowel 2-character 2-character
-          console.log("2-vows")
           resultKn = resultKn.slice(0, -1) + diacritics[textLa[u] + textLa[u+1]];
         } else if (latinToKannada[textLa[u-2] + textLa[u-1] + "a"] && textLa[u] == "a") { // Consonant-Vowel 2-character 1-character
-          console.log("full")
           resultKn = resultKn.slice(0, -2) + latinToKannada[textLa[u-2] + textLa[u-1] + "a"];
-        } else if (anuswaraEndings.indexOf(textLa[u+1]) > -1 && !diacritics[textLa[u+2]] && !includedAnuswara) {
-          console.log("anuswara ", textLa[u-1], textLa[u] , textLa[u+1] , includedAnuswara)
-          resultKn = resultKn + "ಂ";
-        } else if (!includedAnuswara){
-          console.log("half")
+        } else if (anuswaraEndings.indexOf(textLa[u+1]) > -1) {
+          resultKn = resultKn + "ಂ";  // Anuswara - C²A  CD²A  C²AC² C²AC¹ CD²AC² CD²AC¹
+        } else {
           resultKn = resultKn.slice(0, -2) + latinToKannada[textLa[u-1] + textLa[u] + "a"] + "್";
         }
-        includedAnuswara = false;
       } else if (latinToKannada[textLa[u] + "a"] || (latinToKannada[textLa[u-1] + "a"] && textLa[u] == "a")) { // Consonant 1-character
-        console.log("1-cons")
         if (diacritics[textLa[u] + textLa[u+1] + textLa[u+2]]) { // Consonant-Vowel 1-character 3-character
-          console.log("3-vows")
           resultKn = resultKn.slice(0, -1) + diacritics[textLa[u] + textLa[u+1] + textLa[u+2]];
         } else if (diacritics[textLa[u] + textLa[u+1]]) { // Consonant-Vowel 1-character 2-character
           if ((textLa[u] + textLa[u+1]) == "m̐") { // Anunasika
-            console.log("anunasika")
             resultKn = resultKn + diacritics["m̐"];
           } else if (diacritics[textLa[u-1]] && textLa[u] == " ̃") { // vowel nasalisation
-            console.log(" ̃")
             resultKn = resultKn.slice(0, -1) + diacritics[textLa[u] + textLa[u+1]];
           } else { 
-            console.log("2-vows")
             resultKn = resultKn.slice(0, -1) + diacritics[textLa[u] + textLa[u+1]];
           }
         } else if (latinToKannada[textLa[u-1] + "a"] && textLa[u] == "a") { // Consonant-Vowel 1-character 1-character
-          console.log("full")
           if (textLa[u-1] == "f" || textLa[u-1] == "z") { // Nuqta cases
             resultKn = resultKn.slice(0, -3) + latinToKannada[textLa[u-1] + "a"];
           } else {
             resultKn = resultKn.slice(0, -2) + latinToKannada[textLa[u-1] + "a"];
           }
-        } else if (anuswaraEndings.indexOf(textLa[u]) == -1 && anuswaraEndings.indexOf(textLa[u+1]) > -1 && !diacritics[textLa[u+2]] && !includedAnuswara) {
-          console.log("anuswara ", textLa[u-1], textLa[u] , textLa[u+1] , includedAnuswara)
-          resultKn = resultKn + "ಂ";
-        } else if (!includedAnuswara) {
-          console.log("half")
+        } else if ((latinToKannada[textLa[u-2]] && diacritics[textLa[u-1]] && anuswaraEndings.indexOf(textLa[u]) > -1 && letterAfterAnuswara.indexOf(textLa[u+1]) > -1 && diacritics[textLa[u+2]]) || ((textLa[u-1] == "a" || diacritics[textLa[u-1]]) && anuswaraEndings.indexOf(textLa[u]) > -1 && letterAfterAnuswara.indexOf(textLa[u+1]) > -1) || (diacritics[textLa[u-1]] && anuswaraEndings.indexOf(textLa[u]) == -1 && anuswaraEndings.indexOf(textLa[u+1]) > -1)) {
+          resultKn = resultKn + "ಂ"; // Anuswara - C¹A  CD¹A   C¹AC² CD¹AC² C¹AC² CD¹AC² 
+        } else {
           resultKn = resultKn + latinToKannada[textLa[u] + "a"] + "್";
         }
-        includedAnuswara = false;
       } else if (textLa[u].indexOf("\n") > -1) { // New Lines
-        console.log("newline")
         resultKn = resultKn + "\n";
       } else if (latinToKannada[textLa[u]] != undefined && latinToKannada[textLa[u]] != null && textLa[u] != "") { // Default Single Character
-        console.log("default")
         if (diacritics[textLa[u]]) {
           resultKn = resultKn.slice(0, -1) + diacritics[textLa[u]];
         } else {
           resultKn = resultKn + latinToKannada[textLa[u]];
         }
       }
-      
-      console.log("here11 " + resultKn)
     }
 
     document.getElementById("textarea2").value = resultKn;
     document.getElementById("textarea2").innerHTML = resultKn;
-
+    // Known Issue : extra space maybe required between (V) and (Anuswara)
   } else if (localStorage.getItem("direction") == "kannada2latin") {
     const kannadaToLatin = {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9","೦":"0","೧":"1","೨":"2","೩":"3","೪":"4","೫":"5","೬":"6","೭":"7","೮":"8","೯":"9"," ":" ",".":".",",":",",";":";","?":"?","!":"!","\"":"\"","'":"'","(":"(",")":")",":":":","+":"+","=":"=","/":"/","-":"-","<":"<",">":">","*":"*","|":"|","\\":"\\","₹":"₹","{":"{","}":"}","[":"[","]":"]","_":"_","%":"%","@":"@","ˆ":"ˆ","`":"`","´":"´","˜":"˜","·":"·","˙":"˙","¯":"¯","¨":"¨","˚":"˚","˝":"˝","ˇ":"ˇ","¸":"¸","˛":"˛","˘":"˘","’":"’","ಅ":"a","ಆ":"ā","ಇ":"i","ಈ":"ī","ಉ":"u","ಊ":"ū","ಋ":"r̥","ೠ":"r̥̄","ಌ":"l̥","ೡ":"l̥̄","ಎ":"e","ಏ":"ē","ಐ":"ai","ಒ":"o","ಓ":"ō","ಔ":"au","ಅಂ":"aṃ","ಅಃ":"aḥ","ೱ":" ","ೲ":" ","ಀ":"m̐","\\u0CDD":"nh","಄":" ","ಕ":"ka","ಖ":"kha","ಗ":"ga","ಘ":"gha","ಙ":"ṅa","ಚ":"ca","ಛ":"cha","ಜ":"ja","ಝ":"jha","ಞ":"ña","ಟ":"ṭa","ಠ":"ṭha","ಡ":"ḍa","ಢ":"ḍha","ಣ":"ṇa","ತ":"ta","ಥ":"tha","ದ":"da","ಧ":"dha","ನ":"na","ಪ":"pa","ಫ":"pha","ಬ":"ba","ಭ":"bha","ಮ":"ma","ಯ":"ya","ರ":"ra","ಱ":"ṟa","ಲ":"la","ವ":"va","ಶ":"śa","ಷ":"ṣa","ಸ":"sa","ಹ":"ha","ಳ":"ḷa","ೞ":"ḻa","a":"a","b":"b","c":"c","d":"d","e":"e","f":"f","g":"g","h":"h","i":"i","j":"j","k":"k","l":"l","m":"m","n":"n","o":"o","p":"p","q":"q","r":"r","s":"s","t":"t","u":"u","v":"v","w":"w","x":"x","y":"y","z":"z","A":"A","B":"B","C":"C","D":"D","E":"E","F":"F","G":"G","H":"H","I":"I","J":"J","K":"K","L":"L","M":"M","N":"N","O":"O","P":"P","Q":"Q","R":"R","S":"S","T":"T","U":"U","V":"V","W":"W","X":"X","Y":"Y","Z":"Z"};
 
@@ -268,6 +245,7 @@ function transliterate() {
     }
     document.getElementById("textarea1").value = resultLa;
     document.getElementById("textarea1").innerHTML = resultLa;
+    // Known Issue : fa/za + diacritic transliteration incorrect
   }        
 }
 
