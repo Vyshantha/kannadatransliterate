@@ -51,9 +51,9 @@ ottakṣara :
 
 anusvara śabdagaḷu : ōṁ aṁ aṅgi  oṇṭe  enta uṅgura āntarika ombatu  eṇṭu  ondu  embatu  eṇṭunūru aindavabimba antaḥkr̥ta antyārambhi akṣāmśa intha samyukta pampa kumbha bandaru maṅga pandaḷa taṇṭe daṅga ḍaṅgūra jhaṇḍa ceṇḍu chandassu ghaṇṭe kanda yaṁ dhaṁ vastralaṅkāra beṁlavide ṇānta yajñakaṅkaṇa yakṣāndōḷa saṅkīrṇagoḷisu sañjñāprakr̥ṣṭa āndōlanadarśaka
 
-saṅkīrṇate śabdagaḷu : noṇa goṇṇe brāmhaṇa  bhāgagaḷannu vijñāna oḷagoṇḍiruttade antarsamparkita ṅakāra ṅavana ñakāra ṇakāra ṇamōkāra ṇānta ṇamō nandikallusoppu nambike namaḥśivāyaviḍi namaskaraṇaṅgey navakōṭinārāyaṇa ṟānta ṟōḍagatanaṅgey ṟoppugoḷ ḻānta ḻakāra śrī strī taḥkhte daṇḍājñe ṟaccevātu lakṣmīkaṭākṣa
+saṅkīrṇate śabdagaḷu : noṇa goṇṇe brāmhaṇa  bhāgagaḷannu vijñāna oḷagoṇḍiruttade antarsamparkita ṅakāra ṅavana ñakāra ṇakāra ṇamōkāra ṇānta ṇamō nandikallusoppu nambike namaḥśivāyaviḍi namaskaraṇaṅgey navakōṭinārāyaṇa ṟānta ṟōḍagatanaṅgey ṟoppugoḷ ḻānta ḻakāra śrī strī taḥkhte daṇḍājñe ṟaccevātu lakṣmīkaṭākṣa Brāhmi  Kharoṣṭhī 
 
-viśēṣa prakaraṇagaḷu : za fa ennam̐ dēvā̃ fanta zinda
+viśēṣa prakaraṇagaḷu : za fa ennam̐ dēvā̃ fanta zinda Śivo’ham Mã 
 
 kathe : 
 pratiyobbanigū bhāvaneya antaḥkaraṇada hāgū matada svātantryagaḷige bādhyateyuṇṭu. ēkāṅgiyāgiyū  illave  itararoḍagūḍiyū tanna matavannāgali, viśvāsavannāgali, badalāyisuva svātantryavannū, bahiraṅgavāgiyū gōpyavāgiyū tanna matavannāgali viśvāsavannāgali bōdhisuva, rūḍhisuva, ārādhisuva, ācarisuva svātantryavannū  ī hakku  oḷagoṇḍide. pratiyobbanigū abhiprāyapaḍuva, uccāraṇegaiva svātantryagaḷa bādhyateyuṇṭu. madhyasthike vahisadante abhiprāyagaḷanniṭṭukoḷḷuva svātantravannū sarahaddugaḷa lakṣyavilladeyū yāva mukhāntaravāgiyū vartamānavannū bhāvanegaḷannū anvēṣaṇagaiva, svīkarisuva, tiḷayapaḍisuva svātantryavannū  ī bādhyate  oḷagoṇḍide. 
@@ -63,6 +63,7 @@ samājada sadasyanādudarinda sāmājika bhadratege pratiyobbanigū hakkuṇṭu
 samskr̥ta :
 śrīmūlasaṅgha dēśigaṇa pustakagaccha koṇḍakundānvayake siddhānta ca kravartti nayakīrtimunīśvarō bhāti || 
 taccheṣyōttamabāḷecandramunipa śrīsādanadmapriyā sarvvōrvvīnutacandramauḷisacivasyārddāṅgalakṣmīri yaṁ ācāmbā rajatādri hāraharahāsōdyadyaśōmañjarīpuñjībhūta jagattrayā jinagr̥haṁ bhaktyā mudā kārayat || 
+Vedisakehi daṇtakāreshi rupakṁmaṁ kataṁ |
 
 kavirājamārga : 
 padaṟidu nuḍayaluṁ nuḍiduda naṟiyalumārparā nāḍavargaḷ cadurar nijadiṁ kuritōdadeyuṁ kāvyaprayōga pariṇatamategaḷ
