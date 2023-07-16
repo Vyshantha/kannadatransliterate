@@ -57,7 +57,6 @@ function transliterate() {
   }
 
   // DEFECT ḷ represents : ಳ (ISO 15919) and ಌ / ೢ (IAST)
-  // DEFECT Brāhmi - ಬ್ರಾಹ್ಮಿ
 
   /*  
     Transliteration for Sanskrit (ISO 15919 : IAST), Marathi, older Kannada, old Tamil, modern Kannada and modern Tamil, Havigannada, Konkani, Tulu, Awadhi
