@@ -1,5 +1,5 @@
 # Transliterator : Kannada ಕನ್ನಡ <-> Latin - IAST and ISO 15919
-An application that can work both online and offline on the [Kannada Transliterate](https://vyshantha.github.io/kannadatransliterate/) website. 
+An application that can work both online and offline (once the website is loaded on the browser) on the [Kannada Transliterate](https://vyshantha.github.io/kannadatransliterate/) website. 
 
 Application can run on any type of device : ```Mobile, Tablet, Desktops and Laptops``` on operating systems like ```Android, Apple iOS, Apple Mac, Microsoft Windows and Linux``` on browsers such as ```Mozilla Firefox, Google Chrome, Microsoft Edge, Apple Safari, Opera and Brave```.
 
