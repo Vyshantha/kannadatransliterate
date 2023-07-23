@@ -8,3 +8,6 @@ The application completes transliteration of texts pasted or typed into the text
 The strict nasalisation of anusvāra transliteration using [ISO 15919](https://en.wikipedia.org/wiki/ISO_15919) is adhered. 
 
 The languages ```Kannada (ಕನ್ನಡ), Sanskrit (ಸಂಸ್ಕೃತ), Tulu (ತುಳು), Kodava (ಕೊದವ), Badaga (ಬಡಗ), Beary/Byari (ಬ್ಯಾರಿ), Sankethi/Sanketi (ಸಂಕೆತಿ), Konkani (ಕೋಂಕೀ), Marathi (ಮರಾಠೀ)``` written in Kannada ಕನ್ನಡ (kannaḍa) script are supported with this application.
+
+- To change the transliteration direction i.e. to switch between Latin or Kannada, click the swap icon  <img src="./swap-horiz-64.png" width="40px" height="40px" />  
+- To copy the contents of the either Latin or Kannada text areas click the copy content icon  <img src="./content-copy-64.png" width="40px" height="40px" /> 
