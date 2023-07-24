@@ -56,7 +56,8 @@ function transliterate() {
     document.getElementById("textarea2").innerHTML = "";
   }
 
-  // DEFECT ḷ represents : ಳ (ISO 15919) and ಌ / ೢ (IAST)
+  // ISSUE : fa/za + diacritic transliteration incorrect
+  // FEATURE - Ligature of multiple word combination - Laptop = Lap top : lyāpṭāp = ಲ್ಯಾಪ್‍ಟಾಪ್
 
   /*  
     Transliteration for Sanskrit (ISO 15919 : IAST), Marathi, older Kannada, old Tamil, modern Kannada and modern Tamil, Havigannada, Konkani, Tulu, Awadhi
@@ -67,25 +68,52 @@ function transliterate() {
     Unicode code point : \u0CF3 - https://www.unicode.org/L2/L2021/21114-kannada-sign-anusvara.pdf
     Unicode code point : ಀ - https://www.unicode.org/L2/L2014/14153-kannada-chandrabindu.pdf
 
-    Anusvara - rule ṇ & ṁ : "English Transliteration of Kannada Words with Anusvara and Visarga" : https://link.springer.com/chapter/10.1007/978-981-15-3514-7_28
+    Strict Nasalisation of Anusvara - rule ṇ & ṁ : "English Transliteration of Kannada Words with Anusvara and Visarga" : https://link.springer.com/chapter/10.1007/978-981-15-3514-7_28
   */
 
   if (localStorage.getItem("direction") == null || localStorage.getItem("direction") == undefined || localStorage.getItem("direction") == "latin2kannada") {
-    const latinToKannada = {"0":"೦","1":"೧","2":"೨","3":"೩","4":"೪","5":"೫","6":"೬","7":"೭","8":"೮","9":"೯"," ":"  ",".":".",",":",",";":";","?":"?","!":"!","\"":"\"","'":"'","(":"(",")":")",":":":","+":"+","=":"=","/":"/","-":"-","<":"<",">":">","*":"*","|":"|","\\":"\\","₹":"₹","{":"{","}":"}","[":"[","]":"]","_":"_","%":"%","@":"@","ˆ":"ˆ","`":"`","´":"´","·":"·","˙":"˙","¯":"¯","¨":"¨","˚":"˚","˝":"˝","ˇ":"ˇ","¸":"¸","˛":"˛","˘":"˘","’":"’","a":"ಅ","ā":"ಆ","i":"ಇ","ī":"ಈ","u":"ಉ","ū":"ಊ","r̥":"ಋ","r̥̄":"ೠ","l̥":"ಌ","l̥̄":"ೡ","e":"ಎ","ē":"ಏ","ai":"ಐ","o":"ಒ","ō":"ಓ","au":"ಔ","aṁ":"ಅಂ","aḥ":"ಅಃ","nh":"\\u0CDD","ka":"ಕ","kha":"ಖ","ga":"ಗ","gha":"ಘ","ṅa":"ಙ","ca":"ಚ","cha":"ಛ","ja":"ಜ","jha":"ಝ","ña":"ಞ","ṭa":"ಟ","ṭha":"ಠ","ḍa":"ಡ","ḍha":"ಢ","ṇa":"ಣ","ta":"ತ","tha":"ಥ","da":"ದ","dha":"ಧ","na":"ನ","pa":"ಪ","pha":"ಫ","ba":"ಬ","bha":"ಭ","ma":"ಮ","ya":"ಯ","ra":"ರ","ṟa":"ಱ","la":"ಲ","va":"ವ","śa":"ಶ","ṣa":"ಷ","sa":"ಸ","ha":"ಹ","ḷa":"ಳ","ḻa":"ೞ","fa":"ಫ಼","za":"ಜ಼","A":"ಅ","Ā":"ಆ","I":"ಇ","Ī":"ಈ","U":"ಉ","Ū":"ಊ","R̥":"ಋ","Ṝ":"ೠ","L̥":"ಌ","L̥̄":"ೡ","E":"ಎ","Ē":"ಏ","Ai":"ಐ","O":"ಒ","Ō":"ಓ","Au":"ಔ","Aṁ":"ಅಂ","Aḥ":"ಅಃ","Nh":"\\u0CDD","Ka":"ಕ","Kha":"ಖ","Ga":"ಗ","Gha":"ಘ","Ṅa":"ಙ","Ca":"ಚ","Cha":"ಛ","Ja":"ಜ","Jha":"ಝ","Ña":"ಞ","Ṭa":"ಟ","Ṭha":"ಠ","Ḍa":"ಡ","Ḍha":"ಢ","Ṇa":"ಣ","Ta":"ತ","Tha":"ಥ","Da":"ದ","Dha":"ಧ","Na":"ನ","Pa":"ಪ","Pha":"ಫ","Ba":"ಬ","Bha":"ಭ","Ma":"ಮ","Ya":"ಯ","Ra":"ರ","Ṟa":"ಱ","La":"ಲ","Va":"ವ","Śa":"ಶ","Ṣa":"ಷ","Sa":"ಸ","Ha":"ಹ","Ḷa":"ಳ","Ḻa":"ೞ","Fa":"ಫ಼","Za":"ಜ಼"};
+    let latinToKannada;
+    let diacritics;
 
-    const diacritics = {"a":"","ā":"ಾ","i":"ಿ","ī":"ೀ","u":"ು","ū":"ೂ","r̥":"ೃ","r̥̄":"ೄ","l̥":"ೢ","l̥̄":"ೣ","e":"ೆ","ē":"ೇ","ai":"ೈ","o":"ೊ","ō":"ೋ","au":"ೌ","aṇ":"ಂ","aṁ":"ಂ","aḥ":"ಃ","ʾ":"಼","m̐":"ಀ","Ā":"ಾ","I":"ಿ","Ī":"ೀ","U":"ು","Ū":"ೂ","R̥":"ೃ","Ṝ":"ೄ","L̥":"ೢ","L̥̄":"ೣ","E":"ೆ","Ē":"ೇ","Ai":"ೈ","O":"ೊ","Ō":"ೋ","Au":"ೌ","Aṇ":"ಂ","Aṁ":"ಂ","Aḥ":"ಃ","M̐":"ಀ","'":"ಽ","’":"ಽ","˜":"ಁ","ã":"ಁ","ā̃":"ಾಁ","ĩ":"ಿಁ","ī̃":"ೀಁ","ũ":"ುಁ","ū̃":"ೂಁ","r̥̃":"ೃಁ","ṝ̃":"ೄಁ","ẽ":"ೆಁ","ē̃":"ೇಁ","õ":"ೊಁ","ō̃":"ೋಁ"};
-    
-    const anuswaraEndings = ['ṁ','ṇ','ṅ','ñ','n','m'];
+    const isoAll = {"0":"೦","1":"೧","2":"೨","3":"೩","4":"೪","5":"೫","6":"೬","7":"೭","8":"೮","9":"೯"," ":"  ",".":".",",":",",";":";","?":"?","!":"!","\"":"\"","'":"'","(":"(",")":")",":":":","+":"+","=":"=","/":"/","-":"-","<":"<",">":">","*":"*","|":"|","\\":"\\","₹":"₹","{":"{","}":"}","[":"[","]":"]","_":"_","%":"%","@":"@","ˆ":"ˆ","`":"`","´":"´","·":"·","˙":"˙","¯":"¯","¨":"¨","˚":"˚","˝":"˝","ˇ":"ˇ","¸":"¸","˛":"˛","˘":"˘","’":"’","a":"ಅ","ā":"ಆ","i":"ಇ","ī":"ಈ","u":"ಉ","ū":"ಊ","r̥":"ಋ","r̥̄":"ೠ","l̥":"ಌ","l̥̄":"ೡ","e":"ಎ","ē":"ಏ","ai":"ಐ","o":"ಒ","ō":"ಓ","au":"ಔ","aṁ":"ಅಂ","aṃ":"ಅಂ","āṁ":"ಆಂ","āṃ":"ಆಂ","iṁ":"ಇಂ","iṃ":"ಇಂ","uṁ":"ಉಂ","uṃ":"ಉಂ","eṃ":"ಎಂ","oṃ":"ಒಂ","aḥ":"ಅಃ","nh":"\\u0CDD","ka":"ಕ","kha":"ಖ","ga":"ಗ","gha":"ಘ","ṅa":"ಙ","ca":"ಚ","cha":"ಛ","ja":"ಜ","jha":"ಝ","ña":"ಞ","ṭa":"ಟ","ṭha":"ಠ","ḍa":"ಡ","ḍha":"ಢ","ṇa":"ಣ","ta":"ತ","tha":"ಥ","da":"ದ","dha":"ಧ","na":"ನ","pa":"ಪ","pha":"ಫ","ba":"ಬ","bha":"ಭ","ma":"ಮ","ya":"ಯ","ra":"ರ","ṟa":"ಱ","la":"ಲ","va":"ವ","śa":"ಶ","ṣa":"ಷ","sa":"ಸ","ha":"ಹ","ḷa":"ಳ","ḻa":"ೞ","fa":"ಫ಼","za":"ಜ಼","x":"\u200A","ẖ":"ೱ","ḫ":"ೲ"};
+
+    const iso_dia = {"a":"","ā":"ಾ","i":"ಿ","ī":"ೀ","u":"ು","ū":"ೂ","r̥":"ೃ","r̥̄":"ೄ","l̥":"ೢ","l̥̄":"ೣ","e":"ೆ","ē":"ೇ","ai":"ೈ","o":"ೊ","ō":"ೋ","au":"ೌ","aṇ":"ಂ","aṁ":"ಂ","aṃ":"ಂ","āṃ":"ಾಂ","iṁ":"ಿಂ","uṃ":"ುಂ","eṃ":"ೆಂ","oṃ":"ೊಂ","āṁ":"ಾಂ","iṃ":"ಿಂ","uṁ":"ುಂ","eṁ":"ೆಂ","oṁ":"ೊಂ","aḥ":"ಃ","ʾ":"಼","m̐":"ಀ","'":"ಽ","’":"ಽ","˜":"ಁ","ã":"ಁ","ā̃":"ಾಁ","ĩ":"ಿಁ","ī̃":"ೀಁ","ũ":"ುಁ","ū̃":"ೂಁ","r̥̃":"ೃಁ","ṝ̃":"ೄಁ","ẽ":"ೆಁ","ē̃":"ೇಁ","õ":"ೊಁ","ō̃":"ೋಁ"};
+
+    const iastAll = {"0":"೦","1":"೧","2":"೨","3":"೩","4":"೪","5":"೫","6":"೬","7":"೭","8":"೮","9":"೯"," ":"  ",".":".",",":",",";":";","?":"?","!":"!","\"":"\"","'":"'","(":"(",")":")",":":":","+":"+","=":"=","/":"/","-":"-","<":"<",">":">","*":"*","|":"|","\\":"\\","₹":"₹","{":"{","}":"}","[":"[","]":"]","_":"_","%":"%","@":"@","ˆ":"ˆ","`":"`","´":"´","·":"·","˙":"˙","¯":"¯","¨":"¨","˚":"˚","˝":"˝","ˇ":"ˇ","¸":"¸","˛":"˛","˘":"˘","’":"’","a":"ಅ","ā":"ಆ","i":"ಇ","ī":"ಈ","u":"ಉ","ū":"ಊ","ṛ":"ಋ","ṝ":"ೠ","ḷ":"ಌ","ḹ":"ೡ","e":"ಎ","ē":"ಏ","ai":"ಐ","o":"ಒ","ō":"ಓ","au":"ಔ","aṃ":"ಅಂ","āṃ":"ಆಂ","eṃ":"ಎಂ","oṃ":"ಒಂ","aḥ":"ಅಃ","nh":"\\u0CDD","ka":"ಕ","kha":"ಖ","ga":"ಗ","gha":"ಘ","ṅa":"ಙ","ca":"ಚ","cha":"ಛ","ja":"ಜ","jha":"ಝ","ña":"ಞ","ṭa":"ಟ","ṭha":"ಠ","ḍa":"ಡ","ḍha":"ಢ","ṇa":"ಣ","ta":"ತ","tha":"ಥ","da":"ದ","dha":"ಧ","na":"ನ","pa":"ಪ","pha":"ಫ","ba":"ಬ","bha":"ಭ","ma":"ಮ","ya":"ಯ","ra":"ರ","ṟa":"ಱ","la":"ಲ","va":"ವ","śa":"ಶ","ṣa":"ಷ","sa":"ಸ","ha":"ಹ","ḷa":"ಳ","ḻa":"ೞ","fa":"ಫ಼","za":"ಜ಼","x":"\u200A","ẖ":"ೱ","ḫ":"ೲ"};
+
+    const iast_dia = {"a":"","ā":"ಾ","i":"ಿ","ī":"ೀ","u":"ು","ū":"ೂ","ṛ":"ೃ","ṝ":"ೄ","ḷ":"ೢ","ḹ":"ೣ","e":"ೆ","ē":"ೇ","ai":"ೈ","o":"ೊ","ō":"ೋ","au":"ೌ","aṇ":"ಂ","aṃ":"ಂ","āṃ":"ಾಂ","iṃ":"ಿಂ","uṃ":"ುಂ","eṃ":"ೆಂ","oṃ":"ೊಂ","aḥ":"ಃ","ʾ":"಼","m̐":"ಀ","'":"ಽ","’":"ಽ","˜":"ಁ","ã":"ಁ","ā̃":"ಾಁ","ĩ":"ಿಁ","ī̃":"ೀಁ","ũ":"ುಁ","ū̃":"ೂಁ","r̥̃":"ೃಁ","ṝ̃":"ೄಁ","ẽ":"ೆಁ","ē̃":"ೇಁ","õ":"ೊಁ","ō̃":"ೋಁ"};
+
+
+    let anuswaraEndings = ['ṁ','ṇ','ṅ','ñ','n','m'];
     const letterAfterAnuswara = ['k','g','c','j','ṭ','ḍ','t','d','p','b','y','r','v','ś','ṣ','s','h']; 
-    const longVyanjana = ['k','g','c','j','ṭ','ḍ','t','d'];
 
-    const anunasika = {"ã":"a","ā̃":"ā","ĩ":"i","ī̃":"ī","ũ":"u","ū̃":"ū","r̥̃":"r̥","ṝ̃":"r̥̄","ẽ":"e","ē̃":"ē","õ":"o","ō̃":"ō"};
+    /* const longVyanjana = ['k','g','c','j','ṭ','ḍ','t','d'];
+    const anunasika = {"ã":"a","ā̃":"ā","ĩ":"i","ī̃":"ī","ũ":"u","ū̃":"ū","r̥̃":"r̥","ṝ̃":"r̥̄","ẽ":"e","ē̃":"ē","õ":"o","ō̃":"ō"}; */
 
     let resultKn = "";
     let textLa = document.getElementById("textarea1").value.toLowerCase();
 
-    // IAST - ISO:15919 (Kannada)
-    textLa = textLa.replaceAll("ṃ","ṁ").replaceAll("ã","m̐");
+    // ISSUE ḷ represents : ಳ (ISO 15919) and ಌ / ೢ (IAST)
+    textLa = textLa.replaceAll("ḷa"," ḷa").replaceAll("ḷā"," ḷā").replaceAll("ḷō"," ḷō");
+
+    if (localStorage.getItem("transliterateType") == "ISO" && localStorage.getItem("strict") == "true") {
+      // ISO 15919 only Transliteration then convert IAST to ISO equivalent
+      latinToKannada = isoAll;
+      diacritics = iso_dia;
+      textLa = textLa.replaceAll("Ṃ","Ṁ").replaceAll("Ã","m̐").replaceAll("ṃ","ṁ").replaceAll("ã","m̐");
+      // Kannada distinguishes between short & long vowels, thus this has been commented out : .replaceAll("E","Ē").replaceAll("O","Ō").replaceAll("Ṛ","R̥").replaceAll("Ṝ","R̥̄").replaceAll("Ḷ","L̥").replaceAll("Ḹ","L̥̄").replaceAll("e","ē").replaceAll("o","ō").replaceAll("ṛ","r̥").replaceAll("ṝ","r̥̄").replaceAll("ḷ","l̥").replaceAll("ḹ","l̥̄")
+    } else if (localStorage.getItem("transliterateType") == "ISO" && localStorage.getItem("strict") == "false") {
+      latinToKannada = isoAll;
+      diacritics = iso_dia;
+      textLa = textLa.replaceAll("Ṃ","Ṁ").replaceAll("Ã","m̐").replaceAll("ṃ","ṁ").replaceAll("ã","m̐");
+      anuswaraEndings = ['ṁ'];
+    } else if (localStorage.getItem("transliterateType") == "IAST"){
+      // IAST only Transliteration
+      latinToKannada = iastAll;
+      diacritics = iast_dia;
+      textLa = textLa.replaceAll("Ṁ","Ṃ").replaceAll("ṁ","ṃ").replaceAll("r̥","ṛ").replaceAll("r̥̄","ṝ").replaceAll("l̥","ḷ").replaceAll("l̥̄","ḹ");
+      anuswaraEndings = ['ṃ'];
+    }
 
     for (let u = 0; u < textLa.length; u++ ) {    
       if (diacritics[textLa[u-2] + textLa[u-1] + textLa[u]]) { // Vowel 3-character
@@ -154,10 +182,12 @@ function transliterate() {
         } else {
           resultKn = resultKn + latinToKannada[textLa[u] + "a"] + "್";
         }
-      } else if (textLa[u].indexOf("\n") > -1) { // New Lines
-        resultKn = resultKn + "\n";
+      } else if (textLa[u].indexOf("\n") > -1 && (textLa[u+1] == "i" || textLa[u+1] == "e" || textLa[u+1] == "u" || textLa[u+1] == "o")) { // New Lines
+        resultKn = resultKn +  "\n ";
+      } else if (textLa[u].indexOf("\n") > -1 && (textLa[u+1] != "i" && textLa[u+1] != "e" && textLa[u+1] != "u" && textLa[u+1] != "o")) { // New Lines
+        resultKn = resultKn +  "\n";
       } else if (latinToKannada[textLa[u]] != undefined && latinToKannada[textLa[u]] != null && textLa[u] != "") { // Default Single Character
-        if (diacritics[textLa[u]]) {
+        if (textLa[u-1] && textLa[u-1] != " " && textLa[u-1].indexOf("\n") == -1 && diacritics[textLa[u]]) {
           resultKn = resultKn.slice(0, -1) + diacritics[textLa[u]];
         } else {
           resultKn = resultKn + latinToKannada[textLa[u]];
@@ -168,11 +198,17 @@ function transliterate() {
     document.getElementById("textarea2").value = resultKn;
     document.getElementById("textarea2").innerHTML = resultKn;
   } else if (localStorage.getItem("direction") == "kannada2latin") {
-    const kannadaToLatin = {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9","೦":"0","೧":"1","೨":"2","೩":"3","೪":"4","೫":"5","೬":"6","೭":"7","೮":"8","೯":"9"," ":" ",".":".",",":",",";":";","?":"?","!":"!","\"":"\"","'":"'","(":"(",")":")",":":":","+":"+","=":"=","/":"/","-":"-","<":"<",">":">","*":"*","|":"|","\\":"\\","₹":"₹","{":"{","}":"}","[":"[","]":"]","_":"_","%":"%","@":"@","ˆ":"ˆ","`":"`","´":"´","˜":"˜","·":"·","˙":"˙","¯":"¯","¨":"¨","˚":"˚","˝":"˝","ˇ":"ˇ","¸":"¸","˛":"˛","˘":"˘","’":"’","ಅ":"a","ಆ":"ā","ಇ":"i","ಈ":"ī","ಉ":"u","ಊ":"ū","ಋ":"r̥","ೠ":"r̥̄","ಌ":"l̥","ೡ":"l̥̄","ಎ":"e","ಏ":"ē","ಐ":"ai","ಒ":"o","ಓ":"ō","ಔ":"au","ಅಂ":"aṁ","ಅಃ":"aḥ","ೱ":" ","ೲ":" ","ಀ":"m̐","\\u0CDD":"nh","಄":" ","ಕ":"ka","ಖ":"kha","ಗ":"ga","ಘ":"gha","ಙ":"ṅa","ಚ":"ca","ಛ":"cha","ಜ":"ja","ಝ":"jha","ಞ":"ña","ಟ":"ṭa","ಠ":"ṭha","ಡ":"ḍa","ಢ":"ḍha","ಣ":"ṇa","ತ":"ta","ಥ":"tha","ದ":"da","ಧ":"dha","ನ":"na","ಪ":"pa","ಫ":"pha","ಬ":"ba","ಭ":"bha","ಮ":"ma","ಯ":"ya","ರ":"ra","ಱ":"ṟa","ಲ":"la","ವ":"va","ಶ":"śa","ಷ":"ṣa","ಸ":"sa","ಹ":"ha","ಳ":"ḷa","ೞ":"ḻa","a":"a","b":"b","c":"c","d":"d","e":"e","f":"f","g":"g","h":"h","i":"i","j":"j","k":"k","l":"l","m":"m","n":"n","o":"o","p":"p","q":"q","r":"r","s":"s","t":"t","u":"u","v":"v","w":"w","x":"x","y":"y","z":"z","A":"A","B":"B","C":"C","D":"D","E":"E","F":"F","G":"G","H":"H","I":"I","J":"J","K":"K","L":"L","M":"M","N":"N","O":"O","P":"P","Q":"Q","R":"R","S":"S","T":"T","U":"U","V":"V","W":"W","X":"X","Y":"Y","Z":"Z"};
+    let kannadaToLatin;
+    let diacritics;
+    const isoAll = {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9","೦":"0","೧":"1","೨":"2","೩":"3","೪":"4","೫":"5","೬":"6","೭":"7","೮":"8","೯":"9"," ":" ",".":".",",":",",";":";","?":"?","!":"!","\"":"\"","'":"'","(":"(",")":")",":":":","+":"+","=":"=","/":"/","-":"-","<":"<",">":">","*":"*","|":"|","\\":"\\","₹":"₹","{":"{","}":"}","[":"[","]":"]","_":"_","%":"%","@":"@","ˆ":"ˆ","`":"`","´":"´","˜":"˜","·":"·","˙":"˙","¯":"¯","¨":"¨","˚":"˚","˝":"˝","ˇ":"ˇ","¸":"¸","˛":"˛","˘":"˘","’":"’","ಅ":"a","ಆ":"ā","ಇ":"i","ಈ":"ī","ಉ":"u","ಊ":"ū","ಋ":"r̥","ೠ":"r̥̄","ಌ":"l̥","ೡ":"l̥̄","ಎ":"e","ಏ":"ē","ಐ":"ai","ಒ":"o","ಓ":"ō","ಔ":"au","ಅಂ":"aṁ","ಅಃ":"aḥ","ೱ":"ẖ","ೲ":"ḫ","ಀ":"m̐","\\u0CDD":"nh","಄":" ","ಕ":"ka","ಖ":"kha","ಗ":"ga","ಘ":"gha","ಙ":"ṅa","ಚ":"ca","ಛ":"cha","ಜ":"ja","ಝ":"jha","ಞ":"ña","ಟ":"ṭa","ಠ":"ṭha","ಡ":"ḍa","ಢ":"ḍha","ಣ":"ṇa","ತ":"ta","ಥ":"tha","ದ":"da","ಧ":"dha","ನ":"na","ಪ":"pa","ಫ":"pha","ಬ":"ba","ಭ":"bha","ಮ":"ma","ಯ":"ya","ರ":"ra","ಱ":"ṟa","ಲ":"la","ವ":"va","ಶ":"śa","ಷ":"ṣa","ಸ":"sa","ಹ":"ha","ಳ":"ḷa","ೞ":"ḻa","a":"a","b":"b","c":"c","d":"d","e":"e","f":"f","g":"g","h":"h","i":"i","j":"j","k":"k","l":"l","m":"m","n":"n","o":"o","p":"p","q":"q","r":"r","s":"s","t":"t","u":"u","v":"v","w":"w","x":"x","y":"y","z":"z","A":"A","B":"B","C":"C","D":"D","E":"E","F":"F","G":"G","H":"H","I":"I","J":"J","K":"K","L":"L","M":"M","N":"N","O":"O","P":"P","Q":"Q","R":"R","S":"S","T":"T","U":"U","V":"V","W":"W","X":"X","Y":"Y","Z":"Z","\u200A":"x"};
+
+    const iso_dia = {"್":" ","ಾ":"ā","ಿ":"i","ೀ":"ī","ು":"u","ೂ":"ū","ೃ":"r̥","ೄ":"r̥̄","ೢ":"l̥","ೣ":"l̥̄","ೆ":"e","ೇ":"ē","ೈ":"ai","ೊ":"o","ೋ":"ō","ೌ":"au","ಂ":"ṁ","ಃ":"ḥ","಼":"ʾ","ಁ":"˜","\\u0CF3":"m̐","ಽ":"'"}; 
+
+    const iastAll = {"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9","೦":"0","೧":"1","೨":"2","೩":"3","೪":"4","೫":"5","೬":"6","೭":"7","೮":"8","೯":"9"," ":" ",".":".",",":",",";":";","?":"?","!":"!","\"":"\"","'":"'","(":"(",")":")",":":":","+":"+","=":"=","/":"/","-":"-","<":"<",">":">","*":"*","|":"|","\\":"\\","₹":"₹","{":"{","}":"}","[":"[","]":"]","_":"_","%":"%","@":"@","ˆ":"ˆ","`":"`","´":"´","˜":"˜","·":"·","˙":"˙","¯":"¯","¨":"¨","˚":"˚","˝":"˝","ˇ":"ˇ","¸":"¸","˛":"˛","˘":"˘","’":"’","ಅ":"a","ಆ":"ā","ಇ":"i","ಈ":"ī","ಉ":"u","ಊ":"ū","ಋ":"ṛ","ೠ":"ṝ","ಌ":"ḷ","ೡ":"ḹ","ಎ":"e","ಏ":"ē","ಐ":"ai","ಒ":"o","ಓ":"ō","ಔ":"au","ಅಂ":"aṃ","ಅಃ":"aḥ","ೱ":"ẖ","ೲ":"ḫ","ಀ":"m̐","\\u0CDD":"nh","಄":" ","ಕ":"ka","ಖ":"kha","ಗ":"ga","ಘ":"gha","ಙ":"ṅa","ಚ":"ca","ಛ":"cha","ಜ":"ja","ಝ":"jha","ಞ":"ña","ಟ":"ṭa","ಠ":"ṭha","ಡ":"ḍa","ಢ":"ḍha","ಣ":"ṇa","ತ":"ta","ಥ":"tha","ದ":"da","ಧ":"dha","ನ":"na","ಪ":"pa","ಫ":"pha","ಬ":"ba","ಭ":"bha","ಮ":"ma","ಯ":"ya","ರ":"ra","ಱ":"ṟa","ಲ":"la","ವ":"va","ಶ":"śa","ಷ":"ṣa","ಸ":"sa","ಹ":"ha","ಳ":"ḷa","ೞ":"ḻa","a":"a","b":"b","c":"c","d":"d","e":"e","f":"f","g":"g","h":"h","i":"i","j":"j","k":"k","l":"l","m":"m","n":"n","o":"o","p":"p","q":"q","r":"r","s":"s","t":"t","u":"u","v":"v","w":"w","x":"x","y":"y","z":"z","A":"A","B":"B","C":"C","D":"D","E":"E","F":"F","G":"G","H":"H","I":"I","J":"J","K":"K","L":"L","M":"M","N":"N","O":"O","P":"P","Q":"Q","R":"R","S":"S","T":"T","U":"U","V":"V","W":"W","X":"X","Y":"Y","Z":"Z","\u200A":"x"};
+
+    const iast_dia = {"್":" ","ಾ":"ā","ಿ":"i","ೀ":"ī","ು":"u","ೂ":"ū","ೃ":"ṛ","ೄ":"ṝ","ೢ":"ḷ","ೣ":"ḹ","ೆ":"e","ೇ":"ē","ೈ":"ai","ೊ":"o","ೋ":"ō","ೌ":"au","ಂ":"ṃ","ಃ":"ḥ","಼":"ʾ","ಁ":"˜","\\u0CF3":"m̐","ಽ":"'"}; 
 
     const swaras = ['ಅ','ಆ','ಇ','ಈ','ಊ','ಉ','ಋ','ೠ','ಌ','ೡ','ಎ','ಏ','ಐ','ಒ','ಓ','ಔ'];
-
-    const diacritics = {"್":" ","ಾ":"ā","ಿ":"i","ೀ":"ī","ು":"u","ೂ":"ū","ೃ":"r̥","ೄ":"r̥̄","ೢ":"l̥","ೣ":"l̥̄","ೆ":"e","ೇ":"ē","ೈ":"ai","ೊ":"o","ೋ":"ō","ೌ":"au","ಂ":"ṁ","ಃ":"ḥ","಼":"ʾ","ಁ":"˜","\\u0CF3":"m̐","ಽ":"'"}; 
 
     const gutturalLetter = ['ಕ','ಖ','ಗ','ಘ'];
     const palatalLetter = ['ಚ','ಛ','ಜ','ಝ'];
@@ -183,6 +219,16 @@ function transliterate() {
     const nonPronunced = ["್","ಾ","ಿ","ೀ","ು","ೂ","ೃ","ೄ","ೢ","ೣ","ೆ","ೇ","ೈ","ೊ","ೋ","ೌ","಼","ಽ"];
 
     const anunasika = {"a":"ã","ā":"ā̃","i":"ĩ","ī":"ī̃","u":"ũ","ū":"ū̃","r̥":"r̥̃","r̥̄":"ṝ̃","e":"ẽ","ē":"ē̃","o":"õ","ō":"ō̃"};
+
+    if (localStorage.getItem("transliterateType") == "ISO") {
+      // IAST only Transliteration
+      kannadaToLatin = isoAll;
+      diacritics = iso_dia;
+    } else if (localStorage.getItem("transliterateType") == "IAST"){
+      // IAST only Transliteration
+      kannadaToLatin = iastAll;
+      diacritics = iast_dia;
+    }
 
     let resultLa = "";
     let textKn = document.getElementById("textarea2").value;
@@ -233,18 +279,22 @@ function transliterate() {
         resultLa = resultLa + "\n";
       } else if (kannadaToLatin[textKn[u]] != undefined && kannadaToLatin[textKn[u]] != null && textKn[u] != "") {
         // Anusvara rule
-        if (textKn[u-1] && textKn[u-1] == "ಂ" && gutturalLetter.indexOf(textKn[u]) > -1) {
+        if (textKn[u-1] && textKn[u-1] == "ಂ" && gutturalLetter.indexOf(textKn[u]) > -1 && localStorage.getItem("transliterateType") == "ISO" && localStorage.getItem("strict") == "true") {
           resultLa = resultLa.slice(0, -1) + "ṅ" + kannadaToLatin[textKn[u]];
-        } else if (textKn[u-1] && textKn[u-1] == "ಂ" && palatalLetter.indexOf(textKn[u]) > -1) {
+        } else if (textKn[u-1] && textKn[u-1] == "ಂ" && palatalLetter.indexOf(textKn[u]) > -1 && localStorage.getItem("transliterateType") == "ISO" && localStorage.getItem("strict") == "true") {
           resultLa = resultLa.slice(0, -1) + "ñ" + kannadaToLatin[textKn[u]];
-        } else if (textKn[u-1] && textKn[u-1] == "ಂ" && retroflexLetter.indexOf(textKn[u]) > -1) {
+        } else if (textKn[u-1] && textKn[u-1] == "ಂ" && retroflexLetter.indexOf(textKn[u]) > -1 && localStorage.getItem("transliterateType") == "ISO" && localStorage.getItem("strict") == "true") {
           resultLa = resultLa.slice(0, -1) + "ṇ" + kannadaToLatin[textKn[u]];
-        } else if (textKn[u-1] && textKn[u-1] == "ಂ" && dentalLetter.indexOf(textKn[u]) > -1) {
+        } else if (textKn[u-1] && textKn[u-1] == "ಂ" && dentalLetter.indexOf(textKn[u]) > -1 && localStorage.getItem("transliterateType") == "ISO" && localStorage.getItem("strict") == "true") {
           resultLa = resultLa.slice(0, -1) + "n" + kannadaToLatin[textKn[u]];
-        } else if (textKn[u-1] && textKn[u-1] == "ಂ" && labialApproximateLetter.indexOf(textKn[u]) > -1) {
+        } else if (textKn[u-1] && textKn[u-1] == "ಂ" && labialApproximateLetter.indexOf(textKn[u]) > -1 && localStorage.getItem("transliterateType") == "ISO" && localStorage.getItem("strict") == "true") {
           resultLa = resultLa.slice(0, -1) + "m" + kannadaToLatin[textKn[u]];
-        } else if (textKn[u-1] && textKn[u-1] == "ಂ" && gutturalLetter.indexOf(textKn[u]) == -1 && palatalLetter.indexOf(textKn[u]) == -1 && retroflexLetter.indexOf(textKn[u]) == -1 && dentalLetter.indexOf(textKn[u]) == -1 && labialApproximateLetter.indexOf(textKn[u]) == -1 && textKn[u] == " ") {
+        } else if (textKn[u-1] && textKn[u-1] == "ಂ" && gutturalLetter.indexOf(textKn[u]) == -1 && palatalLetter.indexOf(textKn[u]) == -1 && retroflexLetter.indexOf(textKn[u]) == -1 && dentalLetter.indexOf(textKn[u]) == -1 && labialApproximateLetter.indexOf(textKn[u]) == -1 && textKn[u] == " " && localStorage.getItem("transliterateType") == "ISO" && localStorage.getItem("strict") == "true") {
           resultLa = resultLa.slice(0, -1) + "ṁ" + kannadaToLatin[textKn[u]];
+        } else if (textKn[u-1] && textKn[u-1] == "ಂ" && localStorage.getItem("transliterateType") == "ISO" && localStorage.getItem("strict") == "false") {
+          resultLa = resultLa.slice(0, -1) + "ṁ" + kannadaToLatin[textKn[u]];
+        } else if (textKn[u-1] && textKn[u-1] == "ಂ" && localStorage.getItem("transliterateType") == "IAST") {
+          resultLa = resultLa.slice(0, -1) + "ṃ" + kannadaToLatin[textKn[u]];
         } else  {
           resultLa = resultLa + kannadaToLatin[textKn[u]];
         }
@@ -252,8 +302,48 @@ function transliterate() {
     }
     document.getElementById("textarea1").value = resultLa;
     document.getElementById("textarea1").innerHTML = resultLa;
-    // Known Issue : fa/za + diacritic transliteration incorrect
   }        
+}
+
+function typeOfTransliterate(type) {
+  if (type == 'ISO') {
+    localStorage.setItem("transliterateType", "ISO");
+    localStorage.setItem("strict", "true");
+    document.getElementById('nasalisation').style.display = 'inline';
+    document.getElementById("nasalisation").classList.remove('isoWONasal');
+    document.getElementById("nasalisation").classList.add('isoNasal');
+    document.getElementById("clickISO").classList.add('currentEncoding');
+    document.getElementById("clickIAST").classList.remove('currentEncoding');
+    transliterate();
+  } else if (type == 'IAST') {
+    localStorage.setItem("transliterateType", "IAST");
+    localStorage.setItem("strict", "false");
+    document.getElementById('nasalisation').style.display = 'none';
+    document.getElementById("clickIAST").classList.add('currentEncoding');
+    document.getElementById("clickISO").classList.remove('currentEncoding');
+    transliterate();
+  } else if (type == 'nasal' && localStorage.getItem("strict") && localStorage.getItem("strict") == "true") {
+    document.getElementById("nasalisation").classList.remove('isoNasal');
+    document.getElementById("nasalisation").classList.remove('currentEncoding');
+    document.getElementById("nasalisation").classList.add('isoWONasal');
+    document.getElementById("nasalisation").title = "Without Strict Nasalisation";
+    localStorage.setItem("strict", "false");
+    transliterate();
+  } else if (type == 'nasal' && localStorage.getItem("strict") && localStorage.getItem("strict") == "false") {
+    document.getElementById("nasalisation").classList.remove('isoWONasal');
+    document.getElementById("nasalisation").classList.remove('currentEncoding');
+    document.getElementById("nasalisation").classList.add('isoNasal');
+    document.getElementById("nasalisation").title = "With Strict Nasalisation";
+    localStorage.setItem("strict", "true");
+    transliterate();
+  } else if (localStorage.getItem("transliterateType") == "" || localStorage.getItem("transliterateType") == undefined || localStorage.getItem("transliterateType") == null) {
+    localStorage.setItem("transliterateType", "IAST");
+    localStorage.setItem("strict", "false");
+    document.getElementById('nasalisation').style.display = 'none';
+    document.getElementById("clickISO").classList.remove('currentEncoding');
+    document.getElementById("clickIAST").classList.add('currentEncoding');
+    transliterate();
+  }
 }
 
 function swap(json){
@@ -287,10 +377,24 @@ if (localStorage.getItem("direction") == null || localStorage.getItem("direction
   localStorage.setItem("direction", "latin2kannada");
   localStorage.setItem("encoding", "Latin");
 }
+if (localStorage.getItem("transliterateType") == "" || localStorage.getItem("transliterateType") == undefined || localStorage.getItem("transliterateType") == null || localStorage.getItem("transliterateType") == "IAST") {
+  localStorage.setItem("transliterateType", "IAST");
+  localStorage.setItem("strict", "false");
+  document.getElementById("clickIAST").classList.add('currentEncoding');
+  document.getElementById("clickISO").classList.remove('currentEncoding');
+  document.getElementById('nasalisation').style.display = 'none';
+} else {
+  localStorage.setItem("strict", "true");
+  document.getElementById("clickISO").classList.add('currentEncoding');
+  document.getElementById("clickIAST").classList.remove('currentEncoding');
+  document.getElementById('nasalisation').style.display = 'inline';
+}
 
 if (screen.width >= 300 && screen.width <= 500) {
   document.getElementById("Kannada").classList.remove("kannadaTabText");
   document.getElementById("Kannada").classList.add("kannadaTabSmallScreen");
   document.getElementById("Latin").classList.remove("tabcontent");
   document.getElementById("Latin").classList.add("tabcontentSmallScreen");
+  document.getElementById("from").style.width = "20px";
+  document.getElementById("to").style.width = "20px";
 }
