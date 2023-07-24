@@ -10,4 +10,7 @@ The strict nasalisation of anusvāra transliteration using [ISO 15919](https://e
 The languages ```Kannada (ಕನ್ನಡ), Sanskrit (ಸಂಸ್ಕೃತ), Tulu (ತುಳು), Kodava (ಕೊದವ), Badaga (ಬಡಗ), Beary/Byari (ಬ್ಯಾರಿ), Sankethi/Sanketi (ಸಂಕೆತಿ), Konkani (ಕೋಂಕೀ), Marathi (ಮರಾಠೀ)``` written in Kannada ಕನ್ನಡ (kannaḍa) script are supported with this application.
 
 - To change the transliteration direction i.e. to switch between Latin or Kannada, click the swap icon  <img src="./swap-horiz-64.png" width="40px" height="40px" />  
-- To copy the contents of the either Latin or Kannada text areas click the copy content icon  <img src="./content-copy-64.png" width="40px" height="40px" /> 
+- To copy the contents of the either Latin or Kannada text areas click the copy content icon  <img src="./content-copy-64.png" width="40px" height="40px" />
+- To execute the transliteration from Latin written in IAST standard to Kannada or vice versa, click the ```IAST``` button. Default standard used at inital load of the application is IAST
+- To execute the transliteration from Latin written in ISO 15919 standard to Kannada or vice versa with strict nasalisation, click the ```ISO``` button
+- To execute the transliteration from Latin written in ISO 15919 standard to Kannada or vice versa without strict nasalisation, click the ```ISO``` button and click the ```👃``` icon
