@@ -61,7 +61,7 @@ body{
 }
 .controls .row .icons i{
   width: 50px;
-  color: #adadad;
+  color: #736e6e;
   font-size: 25px;
   cursor: pointer;
   transition: transform 0.2s ease;
@@ -103,7 +103,7 @@ body{
   border-right: 2px solid #ffffff;
 }
 .controls .exchange{
-  color: #adadad;
+  color: #736e6e;
   cursor: pointer;
   font-size: 30px;
   transition: transform 0.2s ease;
@@ -150,6 +150,66 @@ body{
   margin-bottom: -7px;
 }
 
+.iastDIV {
+  display:inline-block;
+  color:#444;
+  border:1px solid #CCC;
+  background:#DDD;
+  box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+  cursor:pointer;
+  max-width: 100px;
+  padding: 5px;
+  text-align: center;
+}
+.iastDIV:active {
+  color:red;
+  box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
+}
+
+.isoDIV {
+  display:inline-block;
+  color:#444;
+  border:1px solid #CCC;
+  background:#DDD;
+  box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+  cursor:pointer;
+  max-width: 100px;
+  padding: 5px;
+  text-align: center;
+}
+.isoDIV:active {
+  color:red;
+  box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
+}
+
+.isoNasal {
+  display:inline-block;
+  color:#867d7d;
+  border:1px solid #CCC;
+  background:#867d7d;
+  cursor:pointer;
+  max-width: 100px;
+  padding: 5px;
+  text-align: center;
+}
+.isoNasal:active {
+  color:red;
+  box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
+}
+.isoWONasal {
+  display:inline-block;
+  color:#742222;
+  border:1px solid #CCC;
+  background:#742222;
+  cursor:pointer;
+  max-width: 100px;
+  padding: 5px;
+  text-align: center;
+}
+.currentEncoding {
+  border:2px solid #233d28;
+}
+
 @media (max-width: 660px){
   .container{
     padding: 20px;
@@ -186,7 +246,7 @@ body{
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black;
+  /* border-bottom: 1px dotted black; */
 }
 .tooltip:hover {
    cursor: pointer;
