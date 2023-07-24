@@ -43,11 +43,14 @@
                 <span class="latinCopyText">Copy Transliteration text - Kannaḍa</span>
               </div>
             </div>
+            <div id="clickIAST" class="iastDIV" title="IAST Transliteration" onclick="typeOfTransliterate('IAST')">IAST</div>
           </li>
           <li class="exchange">
             <i class="fas fa-exchange-alt" onclick="swapTransliteration()"></i>
           </li>
           <li class="row to">
+            <div id="clickISO" class="isoDIV" title="ISO 15919 Transliteration" onclick="typeOfTransliterate('ISO')">ISO</div>
+            <div id="nasalisation" class="isoNasal" title="with or without strict nasalisation" onclick="typeOfTransliterate('nasal')">👃</div>
             <div class="icons tooltip" onmousedown="show2()">
               <i id="to" class="fas fa-copy" onclick="copyContent2()"></i>
               <div id="tooltip2" onmouseout="hide()" class="tooltiptext">
