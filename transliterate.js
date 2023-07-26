@@ -377,6 +377,8 @@ document.getElementById("textarea1").focus();
 if (localStorage.getItem("direction") == null || localStorage.getItem("direction") == undefined || localStorage.getItem("direction") == "kannada2latin") {
   localStorage.setItem("direction", "latin2kannada");
   localStorage.setItem("encoding", "Latin");
+} else if (localStorage.getItem("direction") != "kannada2latin" && localStorage.getItem("direction") != "latin2kannada") {
+  localStorage.clear();
 }
 if (localStorage.getItem("transliterateType") == "" || localStorage.getItem("transliterateType") == undefined || localStorage.getItem("transliterateType") == null || localStorage.getItem("transliterateType") == "IAST") {
   localStorage.setItem("transliterateType", "IAST");
