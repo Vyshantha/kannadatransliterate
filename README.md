@@ -12,3 +12,7 @@ The languages ```Kannada (ಕನ್ನಡ), Sanskrit (ಸಂಸ್ಕೃತ), Tu
 - To execute the transliteration from Latin written in IAST standard to Kannada or vice versa, click the ```IAST``` button. Default standard used at inital load of the application is IAST
 - To execute the transliteration from Latin written in ISO 15919 standard to Kannada or vice versa with strict nasalisation, click the ```ISO``` button
 - To execute the transliteration from Latin written in ISO 15919 standard to Kannada or vice versa without strict nasalisation, click the ```ISO``` button and click the ```👃``` icon
+
+
+# NPM Package
+ Available here : (https://www.npmjs.com/package/kannada-transliterate)[https://www.npmjs.com/package/kannada-transliterate]
