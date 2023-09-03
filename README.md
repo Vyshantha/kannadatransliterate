@@ -15,4 +15,4 @@ The languages ```Kannada (ಕನ್ನಡ), Sanskrit (ಸಂಸ್ಕೃತ), Tu
 
 
 # NPM Package
- Available [here] (https://www.npmjs.com/package/kannada-transliterate)
+ Available [here](https://www.npmjs.com/package/kannada-transliterate)
