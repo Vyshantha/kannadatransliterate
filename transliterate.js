@@ -59,6 +59,7 @@ function transliterate() {
   // ISSUE : fa/za + diacritic transliteration incorrect
   // ISSUE : Transliteration swap back & forth space between certain WORDS increases
   // FEATURE - Ligature of multiple word combination - Laptop = Lap top : lyāpṭāp = ಲ್ಯಾಪ್‍ಟಾಪ್
+  // TODO - Once Unicode accepts into their standard and Noto-Kannada implements the Font for these 4 characters : https://www.unicode.org/L2/L2023/23216-kannada-glyph-chg.pdf
 
   /*  
     Transliteration for Sanskrit (ISO 15919 : IAST), Marathi, older Kannada, old Tamil, modern Kannada and modern Tamil, Havigannada, Konkani, Tulu, Awadhi
