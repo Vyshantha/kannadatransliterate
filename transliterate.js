@@ -59,7 +59,6 @@ function transliterate() {
   // ISSUE : fa/za + diacritic transliteration incorrect
   // ISSUE : Transliteration swap back & forth space between certain WORDS increases
   // FEATURE - Ligature of multiple word combination - Laptop = Lap top : lyāpṭāp = ಲ್ಯಾಪ್‍ಟಾಪ್
-  // TODO - Once Unicode accepts into their standard and Noto-Kannada implements the Font for these 4 characters : https://www.unicode.org/L2/L2023/23216-kannada-glyph-chg.pdf
 
   /*  
     Transliteration for Sanskrit (ISO 15919 : IAST), Marathi, older Kannada, old Tamil, modern Kannada and modern Tamil, Havigannada, Konkani, Tulu, Awadhi
@@ -133,7 +132,15 @@ function transliterate() {
             resultKn = resultKn.slice(0, -1) + latinToKannada[textLa[u-1] + textLa[u]];
           }
         } else {
-          resultKn = resultKn.slice(0, -1) + diacritics[textLa[u-1] + textLa[u]];
+          if (anuswaraEndings.indexOf(textLa[u]) > -1 && diacritics[textLa[u + 1]]) {
+            resultKn = resultKn.slice(0, -1) + latinToKannada[textLa[u] + 'a'] + diacritics[textLa[u + 1]];
+            u = u + 1;
+          } else if (diacritics[textLa[u + 1]]) {
+            resultKn = resultKn.slice(0, -1) + latinToKannada[textLa[u] + 'a'] + diacritics[textLa[u + 1]];
+            u = u + 1;
+          } else {
+            resultKn = resultKn.slice(0, -1) + diacritics[textLa[u - 1] + textLa[u]];
+          }
         }
       } else if (!diacritics[textLa[u-2]] && !diacritics[textLa[u-1]] && diacritics[textLa[u]]) { // Vowel 1-character
         if (textLa[u] == "a" && textLa[u-1] == " ") {
